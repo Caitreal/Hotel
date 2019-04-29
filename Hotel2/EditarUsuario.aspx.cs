@@ -26,10 +26,23 @@ namespace Hotel2
                 if(conectado.TipoUsuario.Nombre == "CLIENTE" && conectado.TipoUsuario.Nombre == "RECEPCIONISTA" )
                 {
                     okuser = true;
-                }
-                if (!IsPostBack)
+                } 
+                if (okadmin)
                 {
+                    if (!IsPostBack)
+                    {
+                        var db = new DB();
+                        var Usuario = db.Usuario.Find(id);
+                        var nombre = Usuario.NombreUsuario;
+                        var clave = Usuario.Clave;
+                        var tipoUsuarioId = Usuario.TipoUsuarioId;
 
+                        var tipoUsuario = db.TipoUsuario.ToList();
+                        ddlTipoUsuario.DataSource = tipoUsuario;
+                        ddlTipoUsuario.DataValueField = "id";
+                        ddlTipoUsuario.DataTextField = "Nombre";
+
+                    }
                 }
 
             }

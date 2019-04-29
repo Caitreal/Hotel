@@ -156,6 +156,7 @@
       <DependentUpon>Modelo.edmx</DependentUpon>
       <LastGenOutput>Modelo.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Modelo.edmx.sql" />
     <Content Include="Modelo.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Modelo.edmx</DependentUpon>

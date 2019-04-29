@@ -41,8 +41,14 @@ namespace Hotel2
                         ddlTipoUsuario.DataSource = tipoUsuario;
                         ddlTipoUsuario.DataValueField = "id";
                         ddlTipoUsuario.DataTextField = "Nombre";
+                        ddlTipoUsuario.DataBind();
+                        ddlTipoUsuario.Items.Insert(0, new ListItem("-- Seleccione un Tipo Usuario --", "0"));
 
                     }
+                }
+                if(okuser)
+                {
+
                 }
 
             }

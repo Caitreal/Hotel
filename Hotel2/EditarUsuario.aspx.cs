@@ -16,6 +16,7 @@ namespace Hotel2
             id = Convert.ToInt32(Request.QueryString["id"]);
             var ok = false;
             var conectado = Session["conectado"] as Usuario;
+
         }
     }
 }

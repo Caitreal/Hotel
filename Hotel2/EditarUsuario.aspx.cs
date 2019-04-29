@@ -14,9 +14,25 @@ namespace Hotel2
         protected void Page_Load(object sender, EventArgs e)
         {
             id = Convert.ToInt32(Request.QueryString["id"]);
-            var ok = false;
+            var okadmin = false;
+            var okuser = false;
             var conectado = Session["conectado"] as Usuario;
+            if (conectado != null)
+            {
+                if(conectado.TipoUsuario.Nombre == "ADMINSTRADOR")
+                {
+                    okadmin = true;
+                }
+                if(conectado.TipoUsuario.Nombre == "CLIENTE" && conectado.TipoUsuario.Nombre == "RECEPCIONISTA" )
+                {
+                    okuser = true;
+                }
+                if (!IsPostBack)
+                {
 
+                }
+
+            }
         }
     }
 }

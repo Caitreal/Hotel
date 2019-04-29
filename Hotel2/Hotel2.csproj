@@ -129,6 +129,7 @@
     <Content Include="CrearHabitacion.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="EditarHabitacion.aspx" />
+    <Content Include="EditarUsuario.aspx" />
     <Content Include="EliminarHabitacion.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -239,6 +240,13 @@
     </Compile>
     <Compile Include="EditarHabitacion.aspx.designer.cs">
       <DependentUpon>EditarHabitacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarUsuario.aspx.cs">
+      <DependentUpon>EditarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarUsuario.aspx.designer.cs">
+      <DependentUpon>EditarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="EliminarHabitacion.aspx.cs">
       <DependentUpon>EliminarHabitacion.aspx</DependentUpon>

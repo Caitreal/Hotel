@@ -19,7 +19,7 @@ namespace Hotel2
             var conectado = Session["conectado"] as Usuario;
             if (conectado != null)
             {
-                if(conectado.TipoUsuario.Nombre == "ADMINSTRADOR")
+                if(conectado.TipoUsuario.Nombre == "ADMINISTRADOR")
                 {
                     okadmin = true;
                 }
@@ -44,7 +44,7 @@ namespace Hotel2
                         var tipoUsuarioId = Usuario.TipoUsuarioId;
                         var tipoUsuario = db.TipoUsuario.ToList();
                         ddlTipoUsuario.DataSource = tipoUsuario;
-                        ddlTipoUsuario.DataValueField = "id";
+                        ddlTipoUsuario.DataValueField = "Id";
                         ddlTipoUsuario.DataTextField = "Nombre";
                         ddlTipoUsuario.DataBind();
                         ddlTipoUsuario.Items.Insert(0, new ListItem("-- Seleccione un Tipo Usuario --", "0"));

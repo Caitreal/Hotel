@@ -20,7 +20,7 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <asp:Button ID="btnEditarUsuario" CssClass="btn btn-success" runat="server" Text="Editar Datos"/>
+            <asp:Button ID="btnEditarUsuario" CssClass="btn btn-success" runat="server" Text="Editar Datos" OnClick="btnEditarUsuario_Click"/>
         </div>
     </div>
 </asp:Content>

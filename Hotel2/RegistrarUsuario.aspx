@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="col-md-3">
-            &nbsp;&nbsp;&nbsp;
         </div>
     </div>
     <div class="row">
@@ -39,6 +38,7 @@
            <asp:TextBox ID="Txtconfir" TextMode="Password" runat="server" CssClass="form-control" Text=""></asp:TextBox>
         </div>
     </div>
+    </br>
     <div class="row">
         <div class="col-md-3">
            <asp:Button ID="btnAceptar" CssClass="btn btn-success" runat="server" Text="Registrar" OnClick="btnAceptar_Click"></asp:Button>

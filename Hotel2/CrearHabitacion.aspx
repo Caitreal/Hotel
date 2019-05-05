@@ -27,6 +27,14 @@
     </div>
     <div class="row">
         <div class="col-md-2">
+            <asp:Label ID="Label1" runat="server" Text="TIPO"></asp:Label>
+        </div>
+        <div class="col-md-4">
+            <asp:FileUpload ID="fuImagen" runat="server" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
             <asp:Button ID="btnAceptar" CssClass="btn btn-info" runat="server" Text="ACEPTAR" OnClick="btnAceptar_Click" />
         </div>
     </div>

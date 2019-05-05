@@ -1,6 +1,7 @@
 ﻿using Hotel2;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,14 +14,16 @@ namespace Hotel
         public int Id { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            var ok = false;
+            var sesion = 
             var db = new DB();
             Id = Convert.ToInt32(Request.QueryString["id"]);
-            imgHabitacion.ImageUrl = "~/Habitaciones/"+Id+".jpg";
+            imgHabitacion.ImageUrl = "~/imagenes/"+Id+".jpg";
             var habitacion = db.Habitacion.Find(Id);
             txtNombre.Text = habitacion.Descripcion;
             txtPrecio.Text = Convert.ToString(habitacion.Precio);
             txtTipo.Text = habitacion.TipoHabitacion.Nombre;
-
+            
         }
     }
 }

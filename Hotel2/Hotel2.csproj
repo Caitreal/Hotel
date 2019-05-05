@@ -148,6 +148,8 @@
     </EntityDeploy>
     <Content Include="imagenes\1.jpg" />
     <Content Include="imagenes\2.jpg" />
+    <Content Include="imagenes\3.jpg" />
+    <Content Include="imagenes\4.jpg" />
     <Content Include="ListadoHabitaciones.aspx" />
     <Content Include="Modelo.edmx.diagram">
       <DependentUpon>Modelo.edmx</DependentUpon>

@@ -3,7 +3,9 @@
     </br>
     <div class="row">
         <div class="col-md-3">
-            <asp:Label ID="txtNombre" runat="server" Text=""></asp:Label>
+            <strong>
+                <asp:Label ID="txtNombre" runat="server" Text=""></asp:Label>
+            </strong>
         </div>
     </div>
     <div class="row">
@@ -25,6 +27,15 @@
         </div>
         <div class="col-md-7">
             <asp:Label ID="txtTipo" runat="server" Text=""></asp:Label>
+        </div>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="ListadoHabitaciones.aspx" class="btn btn-primary">Volver</a>
+        </div>
+        <div class="col-md-4">
+            <a href="ReservarHabitacionCliente.aspx?id=<%Id%>" class="btn btn-success">Reservar</a>           
         </div>
     </div>
 </asp:Content>

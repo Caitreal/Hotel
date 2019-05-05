@@ -146,6 +146,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Modelo.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="imagenes\1.jpg" />
+    <Content Include="imagenes\2.jpg" />
     <Content Include="ListadoHabitaciones.aspx" />
     <Content Include="Modelo.edmx.diagram">
       <DependentUpon>Modelo.edmx</DependentUpon>

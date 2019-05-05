@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel2;
+using System;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -60,7 +61,7 @@ namespace Hotel
                 db.SaveChanges();
 
                 var imagenBytes = fuImagen.FileBytes;
-                var path = HttpContext.Current.Request.PhysicalApplicationPath + "/Habitaciones/" + nuevaHabitacion.Id + ".jpg";
+                var path = HttpContext.Current.Request.PhysicalApplicationPath + "/imagenes/" + nuevaHabitacion.Id + ".jpg";
                 File.WriteAllBytes(path, imagenBytes);
 
                 Response.Redirect("ListadoHabitaciones");

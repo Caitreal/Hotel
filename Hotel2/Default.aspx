@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Hotel._Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Hotel._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
@@ -18,6 +18,7 @@
                 <asp:TextBox ID="txtClave" TextMode="Password" runat="server" CssClass="form-control" Text=""></asp:TextBox>
             </div>
         </div>
+        </br>
         <div class="row">
             <div class="col-md-3">
       

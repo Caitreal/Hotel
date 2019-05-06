@@ -9,17 +9,14 @@ namespace Hotel2
 {
     public partial class VerUsuario : System.Web.UI.Page
     {
-        public Boolean ok { get; set; }
-        public int id { get; set; }
+        public int Id { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            id = Convert.ToInt32(Request.QueryString["id"]);
             var ok = false;
-            var conectado = Session["conectado"] as Usuario;
-
-            if (conectado != null)
+            var usuario = Session["conectado"] as Usuario;
+            if (usuario != null)
             {
-                if(conectado.TipoUsuario.Nombre == "ADMINISTRADOR" || conectado.TipoUsuario.Nombre == "CLIENTE" || conectado.TipoUsuario.Nombre == "RECEPCIONISTA" )
+                if (usuario.TipoUsuario.Nombre == "CLIENTE")
                 {
                     ok = true;
                 }
@@ -28,25 +25,28 @@ namespace Hotel2
             {
                 Response.Redirect("~/Default");
             }
-
-            var db = new DB();
-            var Usuario = db.Usuario.Find(id);
-            var nombre = Usuario.NombreUsuario;
-            var tipoUsuarioId = Usuario.TipoUsuarioId;
-
-            var tipoUsuario = db.Usuario.ToList();
-            ddlUsuarioTipo.DataSource = tipoUsuario;
-            ddlUsuarioTipo.DataValueField = "Id";
-            ddlUsuarioTipo.DataTextField = "Nombre";
-            ddlUsuarioTipo.DataBind();
-
-            lblNombre.Text = nombre;
-            ddlUsuarioTipo.SelectedValue = Convert.ToString(tipoUsuarioId);
         }
 
-        protected void btnEditarUsuario_Click(object sender, EventArgs e)
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/EditarUsuario");
+            var db = new DB();
+            if (txtRut.Text != "")
+            {
+                Id = Convert.ToInt32(Request.QueryString["id"]);
+                var Usuario = db.Usuario.Find(Id);
+                lblNombre.Text = Usuario.NombreUsuario;
+                txtTipo.Text = Usuario.TipoUsuario.Nombre;
+                var cliente = new Cliente();
+                cliente.Rut = txtRut.Text;
+                cliente.UsuarioId = Id;
+                cliente.TipoClienteId = 1;
+                db.SaveChanges();
+            }
+            else
+            {
+                lblError.Text = "Campo Vacío";
+            }
+            
         }
     }
 }

@@ -3,8 +3,7 @@
     </br>
     <div class="row">
         <div class="col-md-2">
-            <asp:Label ID="lbl1" runat="server" Text="Nombre: "></asp:Label>
-            
+            <asp:Label ID="lbl1" runat="server" Text="Nombre: "></asp:Label>        
         </div>
         <div class="col-md-4">
             <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
@@ -12,15 +11,28 @@
     </div>
     <div class="row">
         <div class="col-md-2">
-            <asp:Label ID="lbl2" runat="server" Text="Tipo de Usuario: "></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Rut: "></asp:Label>        
         </div>
         <div class="col-md-4">
-            <asp:DropDownList ID="ddlUsuarioTipo" CssClass="form-control" enabled="false" runat="server"></asp:DropDownList>
+            <asp:TextBox ID="txtRut" runat="server"></asp:TextBox>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3">
-            <asp:Button ID="btnEditarUsuario" CssClass="btn btn-success" runat="server" Text="Editar Datos" OnClick="btnEditarUsuario_Click"/>
+        <div class="col-md-2">
+            <asp:Label ID="lbl2" runat="server" Text="Tipo de Usuario: "></asp:Label>
+        </div>
+        <div class="col-md-4">
+            <asp:Label ID="txtTipo" runat="server" Text=""></asp:Label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <asp:Button ID="btnGuardar" runat="server" Text="Guardar Datos" class="btn btn-success" OnClick="btnGuardar_Click"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+           <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
         </div>
     </div>
 </asp:Content>

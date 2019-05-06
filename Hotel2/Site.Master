@@ -57,7 +57,7 @@
                         <% if (Session["conectado"] != null)
                         {
                         %>
-                            <li><a runat="server" href="~/VerUsuario">Perfil</a></li>
+                            <li><a runat="server" href="~/VerUsuario">Agregar información al Perfil</a></li>
                             <li><a runat="server" href="~/Salir">Cerrar Sesión</a></li>
                         <% 
                         } 

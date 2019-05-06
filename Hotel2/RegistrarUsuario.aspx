@@ -24,6 +24,14 @@
     </div>
     <div class="row">
         <div class="col-md-3">
+            <asp:Label ID="Label3" runat="server" Text="RUT:"></asp:Label>
+        </div>
+        <div class="col-md-3">
+            <asp:TextBox ID="txtRut" runat="server" CssClass="form-control" Text=""></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
            <asp:Label ID="lblClave" runat="server" Text="CONTRASEÑA:"></asp:Label>
         </div>
         <div class="col-md-3">

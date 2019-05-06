@@ -17,11 +17,12 @@ namespace Hotel
         {
             var ok = false;
             var conectado = Session["conectado"] as Usuario;
+
             if (conectado != null)
             {
                 var db = new DB();
                 Id = Convert.ToInt32(Request.QueryString["id"]);
-                imgHabitacion.ImageUrl = "~/imagenes/"+Id+".jpg";
+                imgHabitacion.ImageUrl = "~/imagenes/" + Id + ".jpg";
                 var habitacion = db.Habitacion.Find(Id);
                 txtNombre.Text = habitacion.Descripcion;
                 txtPrecio.Text = Convert.ToString(habitacion.Precio);

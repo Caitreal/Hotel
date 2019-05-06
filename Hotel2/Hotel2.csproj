@@ -211,6 +211,7 @@
     <Content Include="Site.Master" />
     <Content Include="VerHabitacion.aspx" />
     <Content Include="VerCliente.aspx" />
+    <Content Include="VerHabitacionRecepcionista.aspx" />
     <Content Include="VerReserva.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -444,6 +445,13 @@
     </Compile>
     <Compile Include="VerCliente.aspx.designer.cs">
       <DependentUpon>VerCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerHabitacionRecepcionista.aspx.cs">
+      <DependentUpon>VerHabitacionRecepcionista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerHabitacionRecepcionista.aspx.designer.cs">
+      <DependentUpon>VerHabitacionRecepcionista.aspx</DependentUpon>
     </Compile>
     <Compile Include="VerReserva.aspx.cs">
       <DependentUpon>VerReserva.aspx</DependentUpon>

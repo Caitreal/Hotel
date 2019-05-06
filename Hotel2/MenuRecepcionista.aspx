@@ -20,9 +20,7 @@
             <div class="col-md-4">                
                 <a href="EliminarReservaRecepcionista.aspx" class="btn btn-info">Eliminar Reservacion</a>                                                        
             </div>
-            <div class="col-md-4">                
-                <a href="#" class="btn btn-info">Mostrar Fotos</a>                
-            </div>
+            
         </div>
 
    

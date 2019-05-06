@@ -9,13 +9,12 @@ namespace Hotel2
 {
     public partial class VerHabitacionRecepcionista : System.Web.UI.Page
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            ImagenHab.ImageUrl= "imagenes/1.jpg";
 
-        
+            Id =Convert.ToString(Request.QueryString["Id"]);
+            ImagenHab.ImageUrl= "~/imagenes/"+Id+".jpg";        
         }
     }
 }

@@ -81,10 +81,10 @@ namespace Hotel2
             Reserva reserva = new Reserva();
             reserva.Cliente = cliente;
             reserva.HabitacionId = Convert.ToInt32(DropListHabitacion.SelectedValue);
-           // Response.Write("<script>alert('Habitacion: "+ DropListHabitacion.SelectedValue + "')</script>");
+            // Response.Write("<script>alert('Habitacion: "+ DropListHabitacion.SelectedValue + "')</script>");
 
             db.Reserva.Add(reserva);
-            db.SaveChanges();            
+            db.SaveChanges();
             Response.Redirect("MenuRecepcionista.aspx");
         }
         private void comprobarSesion()

@@ -131,6 +131,7 @@
     <Content Include="EditarHabitacion.aspx" />
     <Content Include="EditarUsuario.aspx" />
     <Content Include="EliminarHabitacion.aspx" />
+    <Content Include="EliminarReservaCliente.aspx" />
     <Content Include="EliminarReservaRecepcionista.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -153,7 +154,10 @@
     <Content Include="imagenes\3.jpg" />
     <Content Include="imagenes\4.jpg" />
     <Content Include="ListadoHabitaciones.aspx" />
+    <Content Include="ListadoHabitacionesCliente.aspx" />
     <Content Include="ListadoHabitacionesRecepcionista.aspx" />
+    <Content Include="ListadoReservas.aspx" />
+    <Content Include="MenuCliente.aspx" />
     <Content Include="MenuRecepcionista.aspx" />
     <Content Include="Modelo.edmx.diagram">
       <DependentUpon>Modelo.edmx</DependentUpon>
@@ -205,7 +209,8 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="VerHabitacion.aspx" />
-    <Content Include="VerUsuario.aspx" />
+    <Content Include="VerCliente.aspx" />
+    <Content Include="VerReserva.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -269,6 +274,13 @@
     <Compile Include="EliminarHabitacion.aspx.designer.cs">
       <DependentUpon>EliminarHabitacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EliminarReservaCliente.aspx.cs">
+      <DependentUpon>EliminarReservaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarReservaCliente.aspx.designer.cs">
+      <DependentUpon>EliminarReservaCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EliminarReservaRecepcionista.aspx.cs">
       <DependentUpon>EliminarReservaRecepcionista.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -296,12 +308,33 @@
     <Compile Include="ListadoHabitaciones.aspx.designer.cs">
       <DependentUpon>ListadoHabitaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ListadoHabitacionesCliente.aspx.cs">
+      <DependentUpon>ListadoHabitacionesCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListadoHabitacionesCliente.aspx.designer.cs">
+      <DependentUpon>ListadoHabitacionesCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ListadoHabitacionesRecepcionista.aspx.cs">
       <DependentUpon>ListadoHabitacionesRecepcionista.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ListadoHabitacionesRecepcionista.aspx.designer.cs">
       <DependentUpon>ListadoHabitacionesRecepcionista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoReservas.aspx.cs">
+      <DependentUpon>ListadoReservas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListadoReservas.aspx.designer.cs">
+      <DependentUpon>ListadoReservas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuCliente.aspx.cs">
+      <DependentUpon>MenuCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuCliente.aspx.designer.cs">
+      <DependentUpon>MenuCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="MenuRecepcionista.aspx.cs">
       <DependentUpon>MenuRecepcionista.aspx</DependentUpon>
@@ -347,7 +380,6 @@
       <DependentUpon>ReservarHabitacionRecepcionista.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    
     <Compile Include="ReservarHabitacionCliente.aspx.cs">
       <DependentUpon>ReservarHabitacionCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -395,12 +427,19 @@
     <Compile Include="VerHabitacion.aspx.designer.cs">
       <DependentUpon>VerHabitacion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VerUsuario.aspx.cs">
-      <DependentUpon>VerUsuario.aspx</DependentUpon>
+    <Compile Include="VerCliente.aspx.cs">
+      <DependentUpon>VerCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VerUsuario.aspx.designer.cs">
-      <DependentUpon>VerUsuario.aspx</DependentUpon>
+    <Compile Include="VerCliente.aspx.designer.cs">
+      <DependentUpon>VerCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerReserva.aspx.cs">
+      <DependentUpon>VerReserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerReserva.aspx.designer.cs">
+      <DependentUpon>VerReserva.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

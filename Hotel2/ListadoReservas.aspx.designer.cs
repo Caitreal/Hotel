@@ -10,15 +10,15 @@
 namespace Hotel2 {
     
     
-    public partial class Reservar_ {
+    public partial class ListadoReservas {
         
         /// <summary>
-        /// Control Label1.
+        /// Control EliminarReservaCliente.aspx?id=<%Id%>.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.HyperLink EliminarReservaCliente.aspx?id=<%Id%>;
     }
 }

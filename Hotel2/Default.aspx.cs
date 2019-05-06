@@ -81,6 +81,7 @@ namespace Hotel
                         break;
 
                     case "CLIENTE":
+                        Response.Redirect("~/MenuRecepcionista");
                         break;
 
                     case "ADMINISTRADOR":

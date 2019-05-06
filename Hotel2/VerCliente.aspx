@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerUsuario.aspx.cs" Inherits="Hotel2.VerUsuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerCliente.aspx.cs" Inherits="Hotel2.VerUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     </br>
     <div class="row">

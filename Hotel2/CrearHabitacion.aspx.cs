@@ -1,9 +1,8 @@
 ﻿using Hotel2;
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Hotel
@@ -60,6 +59,11 @@ namespace Hotel
                 nuevaHabitacion.TipoHabitacionId = tipo;
                 db.Habitacion.Add(nuevaHabitacion);
                 db.SaveChanges();
+
+                var imagenBytes = fuImagen.FileBytes;
+                var path = HttpContext.Current.Request.PhysicalApplicationPath + "/imagenes/" + nuevaHabitacion.Id + ".jpg";
+                File.WriteAllBytes(path, imagenBytes);
+
                 Response.Redirect("ListadoHabitaciones");
             }
             else

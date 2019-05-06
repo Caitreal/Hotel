@@ -19,7 +19,7 @@ namespace Hotel2
             var usuario = txtUsuario.Text;
             var contraseña = txtClave.Text;
             var confirmar = Txtconfir.Text;
-
+            var rut = txtRut.Text;
             var db = new DB();
 
             if (usuario != "" & contraseña!="" & confirmar!="")
@@ -27,13 +27,19 @@ namespace Hotel2
                 if(contraseña.Equals(confirmar))
                 {
                     var registrarUsuario = new Usuario();
-                    registrarUsuario.NombreUsuario = usuario;
-                    registrarUsuario.Clave = contraseña;
-                    registrarUsuario.TipoUsuarioId = 2;
-                    db.Usuario.Add(registrarUsuario);
-                    db.SaveChanges();
-                    lblSuccess.Text = "Se ha registrado correctamente.";
-
+                    if (usuario != registrarUsuario.NombreUsuario)
+                    {
+                        registrarUsuario.NombreUsuario = usuario;
+                        registrarUsuario.Clave = contraseña;
+                        registrarUsuario.TipoUsuarioId = 2;
+                        db.Usuario.Add(registrarUsuario);
+                        db.SaveChanges();
+                        lblSuccess.Text = "Se ha registrado correctamente.";
+                    }
+                    else
+                    {
+                        lblSuccess.Text = "Usuario ya registrado";
+                    }
                 }
                 else
                 {

@@ -27,6 +27,7 @@
                 <td><%= habitacion.TipoHabitacion.CantidadPersonas %></td>
                 <td><a href="EditarHabitacion.aspx?id=<%= habitacion.Id %>" class="btn btn-success">Editar</a>
                     <a href="EliminarHabitacion.aspx?id=<%= habitacion.Id %>" class="btn btn-danger">Eliminar</a>
+                    <a href="VerHabitacion.aspx?id=<%= habitacion.Id %>" class="btn btn-primary">Ver Habitacion</a>
                 </td>
             </tr>
             <%

@@ -131,6 +131,7 @@
     <Content Include="EditarHabitacion.aspx" />
     <Content Include="EditarUsuario.aspx" />
     <Content Include="EliminarHabitacion.aspx" />
+    <Content Include="EliminarReservaRecepcionista.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -146,7 +147,10 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Modelo.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="ListaDescuentosRecepcionista.aspx" />
     <Content Include="ListadoHabitaciones.aspx" />
+    <Content Include="ListadoHabitacionesRecepcionista.aspx" />
+    <Content Include="MenuRecepcionista.aspx" />
     <Content Include="Modelo.edmx.diagram">
       <DependentUpon>Modelo.edmx</DependentUpon>
     </Content>
@@ -156,12 +160,15 @@
       <DependentUpon>Modelo.edmx</DependentUpon>
       <LastGenOutput>Modelo.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Modelo.edmx.sql" />
     <Content Include="Modelo.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Modelo.edmx</DependentUpon>
       <LastGenOutput>Modelo.cs</LastGenOutput>
     </Content>
+    <Content Include="PreciosHabitacionesRecepcionista.aspx" />
     <Content Include="RegistrarUsuario.aspx" />
+    <Content Include="ReservarHabitacionRecepcionista.aspx" />
     <Content Include="Salir.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -255,11 +262,25 @@
     <Compile Include="EliminarHabitacion.aspx.designer.cs">
       <DependentUpon>EliminarHabitacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EliminarReservaRecepcionista.aspx.cs">
+      <DependentUpon>EliminarReservaRecepcionista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarReservaRecepcionista.aspx.designer.cs">
+      <DependentUpon>EliminarReservaRecepcionista.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Habitacion.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListaDescuentosRecepcionista.aspx.cs">
+      <DependentUpon>ListaDescuentosRecepcionista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListaDescuentosRecepcionista.aspx.designer.cs">
+      <DependentUpon>ListaDescuentosRecepcionista.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListadoHabitaciones.aspx.cs">
       <DependentUpon>ListadoHabitaciones.aspx</DependentUpon>
@@ -267,6 +288,20 @@
     </Compile>
     <Compile Include="ListadoHabitaciones.aspx.designer.cs">
       <DependentUpon>ListadoHabitaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoHabitacionesRecepcionista.aspx.cs">
+      <DependentUpon>ListadoHabitacionesRecepcionista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListadoHabitacionesRecepcionista.aspx.designer.cs">
+      <DependentUpon>ListadoHabitacionesRecepcionista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuRecepcionista.aspx.cs">
+      <DependentUpon>MenuRecepcionista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuRecepcionista.aspx.designer.cs">
+      <DependentUpon>MenuRecepcionista.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelo.Context.cs">
       <AutoGen>True</AutoGen>
@@ -283,6 +318,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PreciosHabitacionesRecepcionista.aspx.cs">
+      <DependentUpon>PreciosHabitacionesRecepcionista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreciosHabitacionesRecepcionista.aspx.designer.cs">
+      <DependentUpon>PreciosHabitacionesRecepcionista.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarUsuario.aspx.cs">
       <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
@@ -293,6 +335,13 @@
     </Compile>
     <Compile Include="Reserva.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReservarHabitacionRecepcionista.aspx.cs">
+      <DependentUpon>ReservarHabitacionRecepcionista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReservarHabitacionRecepcionista.aspx.designer.cs">
+      <DependentUpon>ReservarHabitacionRecepcionista.aspx</DependentUpon>
     </Compile>
     <Compile Include="Salir.aspx.cs">
       <DependentUpon>Salir.aspx</DependentUpon>

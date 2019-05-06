@@ -34,6 +34,28 @@ namespace Hotel2
                         registrarUsuario.TipoUsuarioId = 2;
                         db.Usuario.Add(registrarUsuario);
                         db.SaveChanges();
+
+                        Usuario us = new Usuario();
+
+                        List<Usuario> listaU = db.Usuario.ToList();
+
+                        foreach (Usuario u in listaU)
+                        {
+                            if(u.NombreUsuario == usuario)
+                            {
+                                us = u;
+                            }
+
+                        }
+
+                        Cliente cl = new Cliente();
+                        cl.Rut = rut;
+                        cl.UsuarioId = us.Id;
+
+                        db.Cliente.Add(cl);
+                        db.SaveChanges();
+
+
                         lblSuccess.Text = "Se ha registrado correctamente.";
                     }
                     else

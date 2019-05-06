@@ -12,6 +12,7 @@ namespace Hotel2
         public List<TipoHabitacion> TipoHabitaciones { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            TipoSeleccionado();
             comprobarSesion();
             LlenarDropList();
         }
@@ -28,27 +29,7 @@ namespace Hotel2
 
         private void TipoSeleccionado()
         {
-        }
-        private void comprobarSesion()
-        {
-            Usuario user = Session["conectado"] as Usuario;
-            if (user != null)
-            {
-                if (!user.TipoUsuario.Nombre.Equals("RECEPCIONISTA"))
-                {
-                    Response.Redirect("Default.aspx");
-                }
-            }
-            else
-            {
-                Response.Redirect("Default.aspx");
-            }
-        }
-
-        protected void DropListTipoHabitacion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            int IdTIpo = Convert.ToInt32(DropListTipoHabitacion.SelectedValue);
+           // int IdTIpo = Convert.ToInt32(DropListTipoHabitacion.SelectedValue);
             var db = new DB();
             List<Habitacion> ListaHabitaciones = db.Habitacion.ToList();
             List<Reserva> ListaReservas = db.Reserva.ToList();
@@ -63,8 +44,8 @@ namespace Hotel2
             foreach (Habitacion habitacion in ListaHabitaciones)
             {
 
-                if (habitacion.TipoHabitacionId == IdTIpo)
-                {
+               // if (habitacion.TipoHabitacionId == IdTIpo)
+               // {
 
                     var ocupada = false;
                     foreach (Reserva reserva in ListaReservas)
@@ -87,12 +68,33 @@ namespace Hotel2
 
                     }
 
-                }
+               // }
             }
 
             DataView dv = new DataView(dt);
             Lista.DataSource = dv;
             Lista.DataBind();
+        }
+        private void comprobarSesion()
+        {
+            Usuario user = Session["conectado"] as Usuario;
+            if (user != null)
+            {
+                if (!user.TipoUsuario.Nombre.Equals("RECEPCIONISTA"))
+                {
+                    Response.Redirect("Default.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
+        }
+
+        protected void DropListTipoHabitacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            
 
         }
     }

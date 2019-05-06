@@ -13,22 +13,40 @@ namespace Hotel2
         public int Id { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            var ok = false;
-            var conectado = Session["conectado"] as Usuario;
-            Id = Convert.ToInt32(Request.QueryString["id"]); 
-            if (conectado != null)
-            {
-                if (conectado.NombreUsuario == "Cliente")
-                {
-                    var db = new DB();
-                    var cliente = db.Cliente.Find(Id);
-                    if(cliente.Rut != null)
-                    {
-                        txtRut.Text = cliente.Rut;
-                    }
+           
+ 
+        }
 
+        protected void reservar_Click(object sender, EventArgs e)
+        {
+            var db = new DB();
+            Usuario conectado = Session["conectado"] as Usuario;
+
+
+            Cliente cli = new Cliente();
+
+            List<Cliente> liscli = db.Cliente.ToList();
+
+            foreach (Cliente c in liscli)
+            {
+                if (c.UsuarioId == conectado.Id)
+                {
+                    cli = c;
                 }
             }
+
+            Reserva rs = new Reserva();
+            rs.Cliente = cli;
+            rs.UsuarioId = conectado.Id;
+            rs.NumeroNoches = Convert.ToInt32(txtNumNoches.Text);
+            rs.CantidadPersonas = Convert.ToInt32(txtPersonas.Text);
+            rs.HabitacionId = Convert.ToInt32(Request.QueryString["id"]);
+
+            db.Reserva.Add(rs);
+            db.SaveChanges();
+
+            Response.Redirect("MenuCliente.aspx");
+
         }
     }
 }

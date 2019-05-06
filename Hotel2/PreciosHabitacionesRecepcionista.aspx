@@ -15,23 +15,71 @@
         </div>
     </div>    
 
+
     <br />
 
-    <div class="row">
+    <div>
 
-        <asp:DataGrid id="Lista"
-           BorderColor="black"
-           BorderWidth="1"
-           CellPadding="3"
-           AutoGenerateColumns="true"
-           runat="server">
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Precio
+                    </th>
+                    <th>
+                        Descipcion
+                    </th>
+                    <th>
+                        Tipo
+                    </th>
+                    <th>
+                        Cantidad Personas
+                    </th>
+                    <th>
+                        Ver
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
 
-         <HeaderStyle BackColor="Black" ForeColor="White">
-         </HeaderStyle> 
+                <%
+                    foreach (var h in ListaHab)
+                    {
 
+                    %>
+
+                <tr>
+                    <td>
+                        <%= h.Id %>
+                    </td>
+                    <td>
+                        <%= h.Precio %>
+                    </td>
+                    <td>
+                        <%= h.Descripcion %>
+                    </td>
+                    <td>
+                        <%= h.TipoHabitacion.Nombre %>
+                    </td>
+                    <td>
+                        <%= h.TipoHabitacion.CantidadPersonas %>
+                    </td>
+                    <td>
+                       <a class="btn btn-success" href="VerHabitacionRecepcionista.aspx?Id=<%=h.Id%>">Ver</a>
+                    </td>
+                </tr>
+
+                <%
+                    }
+                    %>
+
+            </tbody>
             
- 
-      </asp:DataGrid>
+
+        </table>
 
     </div>
 

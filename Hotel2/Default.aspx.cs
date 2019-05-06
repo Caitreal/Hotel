@@ -73,7 +73,23 @@ namespace Hotel
             {
                 //usuario inició sesión correctamente
                 Session["conectado"] = usuario;
-                Response.Redirect("ListadoHabitaciones");
+
+                switch (usuario.TipoUsuario.Nombre)
+                {
+                    case "RECEPCIONISTA":
+                        Response.Redirect("MenuRecepcionista.aspx");
+                        break;
+
+                    case "CLIENTE":
+                        break;
+
+                    case "ADMINISTRADOR":
+                        break;
+
+                    default:
+                        break;
+                }
+                
             }
             else
             {

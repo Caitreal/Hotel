@@ -176,8 +176,8 @@
     </Content>
     <Content Include="PreciosHabitacionesRecepcionista.aspx" />
     <Content Include="RegistrarUsuario.aspx" />
-    <Content Include="ReservarHabitacionRecepcionista.aspx" />
     <Content Include="ReservarHabitacionCliente.aspx" />
+    <Content Include="ReservarHabitacionRecepcionista.aspx" />
     <Content Include="Salir.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -376,16 +376,19 @@
     <Compile Include="Reserva.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="ReservarHabitacionRecepcionista.aspx.cs">
-      <DependentUpon>ReservarHabitacionRecepcionista.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="ReservarHabitacionCliente.aspx.cs">
       <DependentUpon>ReservarHabitacionCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ReservarHabitacionCliente.aspx.designer.cs">
       <DependentUpon>ReservarHabitacionCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReservarHabitacionRecepcionista.aspx.cs">
+      <DependentUpon>ReservarHabitacionRecepcionista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReservarHabitacionRecepcionista.aspx.designer.cs">
+      <DependentUpon>ReservarHabitacionRecepcionista.aspx</DependentUpon>
     </Compile>
     <Compile Include="Salir.aspx.cs">
       <DependentUpon>Salir.aspx</DependentUpon>

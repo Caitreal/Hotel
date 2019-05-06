@@ -8,7 +8,7 @@
             <label for="DropListTipoHabitacion">Tipo Habitacion</label>
         </div>
         <div class="col-md-6">
-            <asp:DropDownList ID="DropListTipoHabitacion" runat="server">
+            <asp:DropDownList ID="DropListTipoHabitacion" runat="server" OnSelectedIndexChanged="DropListTipoHabitacion_SelectedIndexChanged" >
                 
             </asp:DropDownList>
         </div>

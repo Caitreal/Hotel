@@ -47,5 +47,10 @@ namespace Hotel2
         {
             Response.Redirect("~/Salir");
         }
+
+        protected void btnReservas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ListadoReserva");
+        }
     }
 }

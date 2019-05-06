@@ -6,7 +6,7 @@
             <asp:Button ID="btnListado" runat="server" CssClass="btn btn-primary" Text="Listar Habitaciones" OnClick="btnListado_Click" />
         </div>
         <div class="col-md-3">
-            <asp:Button ID="btnReservas" runat="server" CssClass="btn btn-success" Text="Reservas Realizadas" />
+            <asp:Button ID="btnReservas" runat="server" CssClass="btn btn-success" Text="Reservas Realizadas" OnClick="btnReservas_Click" />
         </div>
     </div>
     <div class="row">

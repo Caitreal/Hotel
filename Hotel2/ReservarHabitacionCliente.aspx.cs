@@ -22,10 +22,7 @@ namespace Hotel2
                 {
                     var db = new DB();
                     var cliente = db.Cliente.Find(Id);
-                    if ()
-                    {
-
-                    }
+                    
                 }
             }
         }

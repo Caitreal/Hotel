@@ -16,8 +16,8 @@
             <% foreach(var reservas in Reservas){
                 %>
             <tr>
-                <td><%reservas.Fecha %></td>
-                <td><%reservas.FechaInicio %></td>
+                <td><%=reservas.Fecha %></td>
+                <td><%=reservas.FechaInicio %></td>
             </tr>
             
         </tbody>
@@ -25,7 +25,7 @@
     </table>
     <div class="row">
         <div class="col-md-3">
-            <asp:HyperLink ID="EliminarReservaCliente.aspx?id=<%Id%>" runat="server">Cancelar Reserva</asp:HyperLink>
+            <asp:HyperLink href="EliminarReservaCliente.aspx?id=<%reservas.Id%>" runat="server">Cancelar Reserva</asp:HyperLink>
         </div>
     </div>
 </asp:Content>

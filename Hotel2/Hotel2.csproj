@@ -157,6 +157,7 @@
     <Content Include="ListadoHabitacionesCliente.aspx" />
     <Content Include="ListadoHabitacionesRecepcionista.aspx" />
     <Content Include="ListadoReservas.aspx" />
+    <Content Include="MenuAdministrador.aspx" />
     <Content Include="MenuCliente.aspx" />
     <Content Include="MenuRecepcionista.aspx" />
     <Content Include="Modelo.edmx.diagram">
@@ -328,6 +329,13 @@
     </Compile>
     <Compile Include="ListadoReservas.aspx.designer.cs">
       <DependentUpon>ListadoReservas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAdministrador.aspx.cs">
+      <DependentUpon>MenuAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuAdministrador.aspx.designer.cs">
+      <DependentUpon>MenuAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="MenuCliente.aspx.cs">
       <DependentUpon>MenuCliente.aspx</DependentUpon>

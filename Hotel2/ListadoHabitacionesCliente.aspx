@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListadoHabitacionesCliente.aspx.cs" Inherits="Hotel2.ListadoHabitacionesCliente" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    
-     <table class="table table-stripped table-hover">
+
+    <table class="table table-stripped table-hover">
 
         <thead>
             <tr>
-                <th>FOTO</th>
-                <th>PRECIO</th>
                 <th>DESCRIPCIÓN</th>
+                <th>PRECIO</th>
                 <th>TIPO HABITACION</th>
                 <th>CANTIDAD DE PERSONAS</th>
             </tr>
@@ -19,13 +19,17 @@
 
             %>
             <tr>
-                <td><%= habitacion.Precio%></td>
+                <td><%= habitacion.Descripcion %></td>
+                <td><%= habitacion.Precio %></td>
+                <td><%= habitacion.TipoHabitacion.Nombre %></td>
+                <td><%= habitacion.TipoHabitacion.CantidadPersonas%></td>
+                <td>
+                    <a href="VerHabitacion.aspx?id=<%= habitacion.Id%>" class="btn btn-warning" >Ver Habitacion</a>
             </tr>
             <%
-            }
-                %>
-        </tbody>        
-
-         </table>
+                }
+            %>
+        </tbody>
+    </table>
 
 </asp:Content>

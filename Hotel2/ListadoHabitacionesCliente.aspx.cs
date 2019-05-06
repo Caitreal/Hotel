@@ -15,8 +15,7 @@ namespace Hotel2
         {
             var db = new DB();
             Habitaciones = db.Habitacion.ToList();
-            System.Diagnostics.Debug.WriteLine("CONSOLA DE TEXTO");
-
+            
             var ok = false;
 
             var conectado = Session["conectado"] as Usuario;

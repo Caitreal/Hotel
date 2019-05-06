@@ -15,11 +15,17 @@ namespace Hotel2
         {
             var ok = false;
             var conectado = Session["conectado"] as Usuario;
+            Id = Convert.ToInt32(Request.QueryString["id"]); 
             if (conectado != null)
             {
                 if (conectado.NombreUsuario == "Cliente")
                 {
-                    
+                    var db = new DB();
+                    var cliente = db.Cliente.Find(Id);
+                    if ()
+                    {
+
+                    }
                 }
             }
         }

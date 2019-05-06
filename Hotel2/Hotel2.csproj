@@ -347,8 +347,7 @@
       <DependentUpon>ReservarHabitacionRecepcionista.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ReservarHabitacionRecepcionista.aspx.designer.cs">
-      <DependentUpon>ReservarHabitacionRecepcionista.aspx</DependentUpon>
+    
     <Compile Include="ReservarHabitacionCliente.aspx.cs">
       <DependentUpon>ReservarHabitacionCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

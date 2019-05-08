@@ -35,22 +35,17 @@ namespace Hotel2
 
         protected void btnListado_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/ListadoHabitacionesCliente");
-        }
-
-        protected void btnEditar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/VerCliente");
+            Response.Redirect("ListadoHabitacionesCliente");
         }
 
         protected void btnCerrar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Salir");
+            Response.Redirect("Salir");
         }
 
         protected void btnReservas_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/ListadoReserva");
+            Response.Redirect("ListadoReserva");
         }
     }
 }

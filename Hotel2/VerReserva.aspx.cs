@@ -23,10 +23,10 @@ namespace Hotel2
                 if(conectado.TipoUsuario.Nombre == "CLIENTE")
                 {
                     ok = true;
-                    if(conectado.Id == cliente.UsuarioId)
+                    reserva = db.Reserva.ToList();
+                    if (cliente != null)
                     {
-                       reserva = db.Reserva.ToList();              
-                    }
+                                            }
                 }
             }
         }

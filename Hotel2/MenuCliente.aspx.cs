@@ -45,7 +45,7 @@ namespace Hotel2
 
         protected void btnReservas_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListadoReserva");
+            Response.Redirect("VerReserva");
         }
     }
 }

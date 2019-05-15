@@ -37,9 +37,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Fecha" Type="datetime" />
-          <Property Name="FechaInicio" Type="datetime" />
-          <Property Name="NumeroNoches" Type="int" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+          <Property Name="NumeroNoches" Type="int" Nullable="false" />
           <Property Name="ClienteId" Type="int" />
           <Property Name="UsuarioId" Type="int" />
           <Property Name="HabitacionId" Type="int" />
@@ -277,9 +277,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Fecha" Type="DateTime" Precision="3" />
-          <Property Name="FechaInicio" Type="DateTime" Precision="3" />
-          <Property Name="NumeroNoches" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NumeroNoches" Type="Int32" Nullable="false" />
           <Property Name="ClienteId" Type="Int32" />
           <Property Name="UsuarioId" Type="Int32" />
           <Property Name="HabitacionId" Type="Int32" />

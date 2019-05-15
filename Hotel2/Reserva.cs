@@ -15,9 +15,9 @@ namespace Hotel2
     public partial class Reserva
     {
         public int Id { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
-        public Nullable<System.DateTime> FechaInicio { get; set; }
-        public Nullable<int> NumeroNoches { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public System.DateTime FechaInicio { get; set; }
+        public int NumeroNoches { get; set; }
         public Nullable<int> ClienteId { get; set; }
         public Nullable<int> UsuarioId { get; set; }
         public Nullable<int> HabitacionId { get; set; }

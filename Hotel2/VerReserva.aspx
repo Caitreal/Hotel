@@ -9,6 +9,7 @@
                 <th>Cliente</th>
                 <th>Rut</th>
                 <th>Habitacion</th>
+                <th>Accion</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
                     <td><%= re.Cliente.Usuario.NombreUsuario %></td>
                     <td><%= re.Cliente.Rut %></td>
                     <td><%= re.Habitacion.TipoHabitacion.Nombre %></td>
+                    <td><a href="" class="btn btn-warning"></a></td>
                 </tr>
             <%
                 }

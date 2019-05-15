@@ -1,0 +1,15 @@
+﻿Archivo de modelo generado: Modelo.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:02.8269628.
+La generación del modelo tardó 00:00:02.3702241.
+Se agregó la cadena de conexión al archivo Web.Config.
+Archivo de modelo generado: Modelo.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.7282477.
+La generación del modelo tardó 00:00:01.3858818.
+Archivo de modelo generado: DB.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.9373565.
+La generación del modelo tardó 00:00:11.9582062.
+Se agregó la cadena de conexión al archivo Web.Config.
+El proceso de escritura del archivo .edmx tardó 00:00:00.0024897.
+Archivo de modelo generado: DB.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.9733453.
+La generación del modelo tardó 00:00:02.0250501.

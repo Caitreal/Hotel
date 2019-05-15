@@ -144,10 +144,16 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="Modelo.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Modelo.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Content Include="Hotel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Hotel.edmx</DependentUpon>
+      <LastGenOutput>Hotel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Hotel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Hotel.edmx</DependentUpon>
+      <LastGenOutput>Hotel.cs</LastGenOutput>
+    </Content>
     <Content Include="ListaDescuentosRecepcionista.aspx" />
     <Content Include="imagenes\1.jpg" />
     <Content Include="imagenes\2.jpg" />
@@ -160,21 +166,15 @@
     <Content Include="MenuAdministrador.aspx" />
     <Content Include="MenuCliente.aspx" />
     <Content Include="MenuRecepcionista.aspx" />
-    <Content Include="Modelo.edmx.diagram">
-      <DependentUpon>Modelo.edmx</DependentUpon>
+    <EntityDeploy Include="Hotel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Hotel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Hotel.edmx.diagram">
+      <DependentUpon>Hotel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Modelo.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Modelo.edmx</DependentUpon>
-      <LastGenOutput>Modelo.Context.cs</LastGenOutput>
-    </Content>
     <Content Include="Modelo.edmx.sql" />
-    <Content Include="Modelo.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Modelo.edmx</DependentUpon>
-      <LastGenOutput>Modelo.cs</LastGenOutput>
-    </Content>
     <Content Include="PreciosHabitacionesRecepcionista.aspx" />
     <Content Include="RegistrarUsuario.aspx" />
     <Content Include="ReservarHabitacionCliente.aspx" />
@@ -227,10 +227,10 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Calificacion.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
+      <DependentUpon>Hotel.tt</DependentUpon>
     </Compile>
     <Compile Include="Cliente.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
+      <DependentUpon>Hotel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -292,7 +292,22 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Habitacion.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
+      <DependentUpon>Hotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hotel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hotel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hotel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hotel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hotel.edmx</DependentUpon>
     </Compile>
     <Compile Include="ListaDescuentosRecepcionista.aspx.cs">
       <DependentUpon>ListaDescuentosRecepcionista.aspx</DependentUpon>
@@ -350,21 +365,6 @@
     <Compile Include="MenuRecepcionista.aspx.designer.cs">
       <DependentUpon>MenuRecepcionista.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Modelo.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Modelo.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Modelo.edmx</DependentUpon>
-    </Compile>
     <Compile Include="PreciosHabitacionesRecepcionista.aspx.cs">
       <DependentUpon>PreciosHabitacionesRecepcionista.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -381,7 +381,7 @@
       <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reserva.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
+      <DependentUpon>Hotel.tt</DependentUpon>
     </Compile>
     <Compile Include="ReservarHabitacionCliente.aspx.cs">
       <DependentUpon>ReservarHabitacionCliente.aspx</DependentUpon>
@@ -419,16 +419,16 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="TipoCliente.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
+      <DependentUpon>Hotel.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoHabitacion.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
+      <DependentUpon>Hotel.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoUsuario.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
+      <DependentUpon>Hotel.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
+      <DependentUpon>Hotel.tt</DependentUpon>
     </Compile>
     <Compile Include="VerHabitacion.aspx.cs">
       <DependentUpon>VerHabitacion.aspx</DependentUpon>

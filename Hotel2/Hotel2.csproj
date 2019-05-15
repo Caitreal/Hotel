@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Calificar.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -228,6 +229,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Calificacion.cs">
       <DependentUpon>Hotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Calificar.aspx.cs">
+      <DependentUpon>Calificar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calificar.aspx.designer.cs">
+      <DependentUpon>Calificar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente.cs">
       <DependentUpon>Hotel.tt</DependentUpon>

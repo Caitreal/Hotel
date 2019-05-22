@@ -2,13 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
-
--- Date Created: 04/29/2019 13:07:51
--- Generated from EDMX file: C:\Users\danya\Source\Repos\Caitreal\HotelTrivago\Hotel2\Modelo.edmx
-
--- Date Created: 04/29/2019 13:43:01
--- Generated from EDMX file: C:\Users\mjnv5\source\repos\Hotel2\Hotel2\Modelo.edmx
-
+-- Date Created: 05/22/2019 11:16:40
+-- Generated from EDMX file: C:\Users\mjnv5\source\repos\HotelTrivago\Hotel2\HotelTrivago.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -37,6 +32,9 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Habitacion_ToTipoHabitacion]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Habitacion] DROP CONSTRAINT [FK_Habitacion_ToTipoHabitacion];
 GO
+IF OBJECT_ID(N'[dbo].[FK_PagoReserva_ToReserva]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PagoReserva] DROP CONSTRAINT [FK_PagoReserva_ToReserva];
+GO
 IF OBJECT_ID(N'[dbo].[FK_Reserva_ToCliente]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Reserva] DROP CONSTRAINT [FK_Reserva_ToCliente];
 GO
@@ -62,6 +60,9 @@ IF OBJECT_ID(N'[dbo].[Cliente]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Habitacion]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Habitacion];
+GO
+IF OBJECT_ID(N'[dbo].[PagoReserva]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PagoReserva];
 GO
 IF OBJECT_ID(N'[dbo].[Reserva]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Reserva];
@@ -110,12 +111,21 @@ CREATE TABLE [dbo].[Habitacion] (
 );
 GO
 
+-- Creating table 'PagoReserva'
+CREATE TABLE [dbo].[PagoReserva] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [ReservaId] int  NOT NULL,
+    [Pago] int  NOT NULL,
+    [FechaPago] datetime  NOT NULL
+);
+GO
+
 -- Creating table 'Reserva'
 CREATE TABLE [dbo].[Reserva] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Fecha] datetime  NULL,
-    [FechaInicio] datetime  NULL,
-    [NumeroNoches] int  NULL,
+    [Fecha] datetime  NOT NULL,
+    [FechaInicio] datetime  NOT NULL,
+    [NumeroNoches] int  NOT NULL,
     [ClienteId] int  NULL,
     [UsuarioId] int  NULL,
     [HabitacionId] int  NULL,
@@ -174,6 +184,12 @@ GO
 -- Creating primary key on [Id] in table 'Habitacion'
 ALTER TABLE [dbo].[Habitacion]
 ADD CONSTRAINT [PK_Habitacion]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'PagoReserva'
+ALTER TABLE [dbo].[PagoReserva]
+ADD CONSTRAINT [PK_PagoReserva]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -314,6 +330,21 @@ GO
 CREATE INDEX [IX_FK_Reserva_ToHabitacion]
 ON [dbo].[Reserva]
     ([HabitacionId]);
+GO
+
+-- Creating foreign key on [ReservaId] in table 'PagoReserva'
+ALTER TABLE [dbo].[PagoReserva]
+ADD CONSTRAINT [FK_PagoReserva_ToReserva]
+    FOREIGN KEY ([ReservaId])
+    REFERENCES [dbo].[Reserva]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PagoReserva_ToReserva'
+CREATE INDEX [IX_FK_PagoReserva_ToReserva]
+ON [dbo].[PagoReserva]
+    ([ReservaId]);
 GO
 
 -- Creating foreign key on [UsuarioId] in table 'Reserva'

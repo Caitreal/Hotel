@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ccd55c3965f4b5c8b23f821ec0e8749" Name="Diagram1">
+        <EntityTypeShape EntityType="Hotel.Calificacion" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel.Cliente" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel.Habitacion" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel.PagoReserva" Width="1.5" PointX="12.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel.Reserva" Width="1.5" PointX="10.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel.TipoCliente" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel.TipoHabitacion" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel.TipoUsuario" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel.Usuario" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="Hotel.FK_Calificacion_ToCliente" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel.FK_Calificacion_ToHabitacion" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel.FK_Cliente_ToTipoCliente" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel.FK_Cliente_ToUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel.FK_Reserva_ToCliente" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel.FK_Habitacion_ToTipoHabitacion" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel.FK_Reserva_ToHabitacion" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel.FK_PagoReserva_ToReserva" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel.FK_Reserva_ToUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel.FK_Usuario_ToTipoUsuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

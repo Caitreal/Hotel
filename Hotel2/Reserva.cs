@@ -14,6 +14,12 @@ namespace Hotel2
     
     public partial class Reserva
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Reserva()
+        {
+            this.PagoReserva = new HashSet<PagoReserva>();
+        }
+    
         public int Id { get; set; }
         public System.DateTime Fecha { get; set; }
         public System.DateTime FechaInicio { get; set; }
@@ -25,6 +31,8 @@ namespace Hotel2
     
         public virtual Cliente Cliente { get; set; }
         public virtual Habitacion Habitacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PagoReserva> PagoReserva { get; set; }
         public virtual Usuario Usuario { get; set; }
     }
 }

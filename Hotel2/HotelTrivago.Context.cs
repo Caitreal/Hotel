@@ -28,6 +28,7 @@ namespace Hotel2
         public virtual DbSet<Calificacion> Calificacion { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Habitacion> Habitacion { get; set; }
+        public virtual DbSet<PagoReserva> PagoReserva { get; set; }
         public virtual DbSet<Reserva> Reserva { get; set; }
         public virtual DbSet<TipoCliente> TipoCliente { get; set; }
         public virtual DbSet<TipoHabitacion> TipoHabitacion { get; set; }

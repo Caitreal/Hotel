@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel2;
+using System;
 using System.Linq;
 using System.Threading;
 using System.Web.UI.WebControls;
@@ -26,11 +27,7 @@ namespace Hotel
             {
                 if (!IsPostBack)
                 {
-                    ddlValoracion.Items.Add(new ListItem(" * ","1"));
-                    ddlValoracion.Items.Add(new ListItem(" * * ", "2"));
-                    ddlValoracion.Items.Add(new ListItem(" * * * ", "3"));
-                    ddlValoracion.Items.Add(new ListItem(" * * * * ", "4"));
-                    ddlValoracion.Items.Add(new ListItem(" * * * * * ", "5"));
+                    
                 }
             }
 
@@ -90,8 +87,7 @@ namespace Hotel
                             {
                                 calificacion = new Calificacion();
                                 calificacion.ClienteId = clienteIdConectado;
-                                calificacion.HabitacionId = habitacionId;
-                                calificacion.Valoracion = Convert.ToInt32(ddlValoracion.SelectedValue);
+                                calificacion.HabitacionId = habitacionId;;
                                 db.Calificacion.Add(calificacion);
                                 db.SaveChanges();
                                 lblMensaje.Text = "HABITACIÓN CALIFICADA CORRECTAMENTE";

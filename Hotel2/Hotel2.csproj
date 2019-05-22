@@ -145,15 +145,16 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Hotel.Context.tt">
+    <Content Include="HotelTrivago.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Hotel.edmx</DependentUpon>
-      <LastGenOutput>Hotel.Context.cs</LastGenOutput>
+      <DependentUpon>HotelTrivago.edmx</DependentUpon>
+      <LastGenOutput>HotelTrivago.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Hotel.tt">
+    <Content Include="HotelTrivago.edmx.sql" />
+    <Content Include="HotelTrivago.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Hotel.edmx</DependentUpon>
-      <LastGenOutput>Hotel.cs</LastGenOutput>
+      <DependentUpon>HotelTrivago.edmx</DependentUpon>
+      <LastGenOutput>HotelTrivago.cs</LastGenOutput>
     </Content>
     <Content Include="ListaDescuentosRecepcionista.aspx" />
     <Content Include="imagenes\1.jpg" />
@@ -167,15 +168,14 @@
     <Content Include="MenuAdministrador.aspx" />
     <Content Include="MenuCliente.aspx" />
     <Content Include="MenuRecepcionista.aspx" />
-    <EntityDeploy Include="Hotel.edmx">
+    <EntityDeploy Include="HotelTrivago.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Hotel.Designer.cs</LastGenOutput>
+      <LastGenOutput>HotelTrivago.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Hotel.edmx.diagram">
-      <DependentUpon>Hotel.edmx</DependentUpon>
+    <Content Include="HotelTrivago.edmx.diagram">
+      <DependentUpon>HotelTrivago.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Modelo.edmx.sql" />
     <Content Include="PreciosHabitacionesRecepcionista.aspx" />
     <Content Include="RegistrarUsuario.aspx" />
     <Content Include="ReservarHabitacionCliente.aspx" />
@@ -228,7 +228,7 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Calificacion.cs">
-      <DependentUpon>Hotel.tt</DependentUpon>
+      <DependentUpon>HotelTrivago.tt</DependentUpon>
     </Compile>
     <Compile Include="Calificar.aspx.cs">
       <DependentUpon>Calificar.aspx</DependentUpon>
@@ -238,7 +238,7 @@
       <DependentUpon>Calificar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente.cs">
-      <DependentUpon>Hotel.tt</DependentUpon>
+      <DependentUpon>HotelTrivago.tt</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -300,22 +300,22 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Habitacion.cs">
-      <DependentUpon>Hotel.tt</DependentUpon>
+      <DependentUpon>HotelTrivago.tt</DependentUpon>
     </Compile>
-    <Compile Include="Hotel.Context.cs">
+    <Compile Include="HotelTrivago.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Hotel.Context.tt</DependentUpon>
+      <DependentUpon>HotelTrivago.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Hotel.cs">
+    <Compile Include="HotelTrivago.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Hotel.tt</DependentUpon>
+      <DependentUpon>HotelTrivago.tt</DependentUpon>
     </Compile>
-    <Compile Include="Hotel.Designer.cs">
+    <Compile Include="HotelTrivago.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Hotel.edmx</DependentUpon>
+      <DependentUpon>HotelTrivago.edmx</DependentUpon>
     </Compile>
     <Compile Include="ListaDescuentosRecepcionista.aspx.cs">
       <DependentUpon>ListaDescuentosRecepcionista.aspx</DependentUpon>
@@ -373,6 +373,9 @@
     <Compile Include="MenuRecepcionista.aspx.designer.cs">
       <DependentUpon>MenuRecepcionista.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PagoReserva.cs">
+      <DependentUpon>HotelTrivago.tt</DependentUpon>
+    </Compile>
     <Compile Include="PreciosHabitacionesRecepcionista.aspx.cs">
       <DependentUpon>PreciosHabitacionesRecepcionista.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -389,7 +392,7 @@
       <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reserva.cs">
-      <DependentUpon>Hotel.tt</DependentUpon>
+      <DependentUpon>HotelTrivago.tt</DependentUpon>
     </Compile>
     <Compile Include="ReservarHabitacionCliente.aspx.cs">
       <DependentUpon>ReservarHabitacionCliente.aspx</DependentUpon>
@@ -427,16 +430,16 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="TipoCliente.cs">
-      <DependentUpon>Hotel.tt</DependentUpon>
+      <DependentUpon>HotelTrivago.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoHabitacion.cs">
-      <DependentUpon>Hotel.tt</DependentUpon>
+      <DependentUpon>HotelTrivago.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoUsuario.cs">
-      <DependentUpon>Hotel.tt</DependentUpon>
+      <DependentUpon>HotelTrivago.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
-      <DependentUpon>Hotel.tt</DependentUpon>
+      <DependentUpon>HotelTrivago.tt</DependentUpon>
     </Compile>
     <Compile Include="VerHabitacion.aspx.cs">
       <DependentUpon>VerHabitacion.aspx</DependentUpon>

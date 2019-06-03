@@ -16,12 +16,13 @@ namespace Hotel2
             Reservas = db.Reserva.ToList();
 
             var ok = false;
+
             var conectado = Session["conectado"] as Usuario;
             if (conectado != null)
             {
                 if (conectado.TipoUsuario.Nombre == "CLIENTE")
                 {
-
+                    ok = true;
                 }
                 else
                 {

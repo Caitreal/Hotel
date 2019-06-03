@@ -49,7 +49,7 @@ namespace Hotel2
 
         protected void btnReservas_Click(object sender, EventArgs e)
         {
-            Response.Redirect("VerReserva");
+            Response.Redirect("ListadoReservas");
         }
 
     }

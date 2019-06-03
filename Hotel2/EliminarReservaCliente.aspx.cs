@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,6 +15,7 @@ namespace Hotel2
         {
             var ok = false;
             var conectado = Session["conectado"] as Usuario;
+            
             if (conectado != null)
             {
                 if (conectado.TipoUsuario.Nombre == "ADMINISTRADOR")
@@ -32,11 +34,21 @@ namespace Hotel2
                     Id = Convert.ToInt32(Request.QueryString["id"]);
                     var db = new DB();
                     var reservaCliente = db.Reserva.Find(Id);
-                    db.Reserva.Remove(reservaCliente);
-
-                    db.SaveChanges();
-
-                    Response.Redirect("ListadoReservas");
+                    var fechaReserva = reservaCliente.Fecha;
+                    var fechaSumada = reservaCliente.Fecha.AddDays(2);
+                    var fechaHoy = DateTime.Today;
+                    if (fechaHoy <= fechaSumada)
+                    {
+                         db.Reserva.Remove(reservaCliente);
+                         db.SaveChanges();
+                         Response.Redirect("ListadoReservas");
+                    }
+                    else
+                    {
+                        txtError.Text = "Solo se puede eliminar la reserva antes de las 48 Horas reservada";
+                        Thread.Sleep(5500);
+                        Response.Redirect("ListadoReservas");
+                    }
                 }
             }
         }

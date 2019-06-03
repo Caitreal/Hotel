@@ -35,7 +35,7 @@ namespace Hotel2
                     var db = new DB();
                     var reservaCliente = db.Reserva.Find(Id);
                     var fechaReserva = reservaCliente.Fecha;
-                    var fechaSumada = reservaCliente.Fecha.AddDays(2);
+                    var fechaSumada = fechaReserva.AddDays(2);
                     var fechaHoy = DateTime.Today;
                     if (fechaHoy <= fechaSumada)
                     {

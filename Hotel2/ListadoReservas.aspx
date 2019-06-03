@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <% foreach(var reservas in Reservas ){
+            <% foreach(var reservas in reservas){
                 %>
             <tr>
                 <td><%=reservas.Fecha %></td>

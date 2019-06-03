@@ -9,7 +9,7 @@
                 <th>Usuario</th>
                 <th>Numero de Noches</th>
                 <th>Habitacion</th>
-                <th>          </th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +21,11 @@
                 <td><%=reservas.Usuario.NombreUsuario %></td>
                 <td><%=reservas.NumeroNoches %></td>
                 <td><%=reservas.Habitacion.Descripcion %></td>
-                <td><asp:HyperLink href="EliminarReservaCliente.aspx?id=<% reservas.Id %>" CssClass="btn btn-danger" runat="server">Cancelar Reserva</asp:HyperLink></td>
+                <td>
+                    <asp:HyperLink href="EliminarReservaCliente.aspx?id=<% reservas.Id %>" CssClass="btn btn-danger" runat="server" Width="114px">Cancelar Reserva</asp:HyperLink>
+                    </br>                   
+                    <asp:HyperLink href="Calificar.aspx?id=<% reservas.Id %>" CssClass="btn btn-warning" runat="server">Calificar</asp:HyperLink>
+                </td>
             </tr>
         </tbody>
         <%} %>

@@ -7,37 +7,17 @@ using System.Web.UI.WebControls;
 
 namespace Hotel2
 {
+
     public partial class ReservarHabitacionRecepcionista : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            comprobarSesion();
-            LlenarDropListHabitacion();
+            comprobarSesion();           
             LlenarDropListCliente();
         }
-        private void LlenarDropListHabitacion()
-        {
-            var db = new DB();
-            List<Habitacion> habitaciones = db.Habitacion.ToList();
-            List<Reserva> reservas = db.Reserva.ToList();
-            List<Habitacion> habitacionesFiltradas = new List<Habitacion>();
-
-            foreach (Habitacion hb in habitaciones)
-            {
-                var ocupada = false;
-                foreach (Reserva rs in reservas)
-                {
-                    if (hb.Id == rs.Habitacion.Id)
-                    {
-                        ocupada = true;
-                    }
-                }
-
-                if (!ocupada)
-                {
-                    habitacionesFiltradas.Add(hb);
-                }
-            }
+        private void LlenarDropListHabitacion(List<Habitacion> habitacionesFiltradas)
+        {   
             DropListHabitacion.DataSource = habitacionesFiltradas;
             DropListHabitacion.DataTextField = "Id";
             DropListHabitacion.DataValueField = "Id";
@@ -66,26 +46,39 @@ namespace Hotel2
 
         protected void btnReservar_Click(object sender, EventArgs e)
         {
-
             var db = new DB();
+            DateTime hoy = DateTime.Now;
             int idUsuario = Convert.ToInt32(DropListCliente.SelectedValue);
-            List<Cliente> clientes = db.Cliente.ToList();
-            Cliente cliente = null;
-            foreach (Cliente cl in clientes)
-            {
-                if (cl.UsuarioId == idUsuario)
-                {
-                    cliente = cl;
-                }
-            }
-            Reserva reserva = new Reserva();
+            int idHabitacion = Convert.ToInt32(DropListHabitacion.SelectedValue);
+            Cliente cliente = db.Cliente.Where(c => c.UsuarioId == idUsuario).FirstOrDefault();
+            Reserva reserva = new Reserva();           
             reserva.Cliente = cliente;
-            reserva.HabitacionId = Convert.ToInt32(DropListHabitacion.SelectedValue);
-            // Response.Write("<script>alert('Habitacion: "+ DropListHabitacion.SelectedValue + "')</script>");
-
+            reserva.FechaInicio = Calendar1.SelectedDate;
+            reserva.Habitacion = db.Habitacion.Find(idHabitacion);
+            reserva.NumeroNoches = (Calendar2.SelectedDate.DayOfYear - Calendar1.SelectedDate.DayOfYear);
+            reserva.Fecha = hoy.Date;
+            PagoReserva pago = new PagoReserva();
+            pago.Reserva = reserva;
             db.Reserva.Add(reserva);
+            pago.Pago = (reserva.NumeroNoches * Convert.ToInt32(reserva.Habitacion.Precio));
+            db.PagoReserva.Add(pago);
             db.SaveChanges();
             Response.Redirect("MenuRecepcionista.aspx");
+        }
+        private Boolean comprobarFechas()
+        {
+            DateTime inicio = Calendar1.SelectedDate;
+            DateTime fin = Calendar2.SelectedDate;
+            DateTime hoy =  DateTime.Now;            
+
+            if (inicio != null && fin != null)
+            {
+                if (inicio >= hoy && fin > inicio)
+                {                   
+                    return true;
+                }
+            }
+            return false;
         }
         private void comprobarSesion()
         {
@@ -101,6 +94,48 @@ namespace Hotel2
             {
                 Response.Redirect("Default.aspx");
             }
+        }
+        private void consultarHabitacionesDisponibles()
+        {
+            if (comprobarFechas())
+            {
+                var db = new DB();
+                List<Habitacion> habitaciones = db.Habitacion.ToList();
+                List<Habitacion> habitacionesDisponibles = new List<Habitacion>();
+                foreach (Habitacion h in habitaciones)
+                {
+                    Boolean disponible = true;
+                    List<Reserva> reservas = h.Reserva.ToList();
+                    foreach (Reserva r in reservas)
+                    {
+                        DateTime inicio = r.FechaInicio;
+                        DateTime fin = r.FechaInicio.AddDays(r.NumeroNoches);
+                        if ((Calendar1.SelectedDate > inicio && Calendar1.SelectedDate < fin) || (Calendar2.SelectedDate > inicio && Calendar2.SelectedDate < fin))
+                        {
+                            disponible = false;
+                            break;
+                        }
+                    }
+                    if (disponible)
+                    {
+                        habitacionesDisponibles.Add(h);
+                    }
+                }
+                LlenarDropListHabitacion(habitacionesDisponibles);
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Comprueba las fechas!')", true);
+            }
+
+            
+
+
+        }
+
+        protected void Calendar2_SelectionChanged(object sender, EventArgs e)
+        {
+            consultarHabitacionesDisponibles();
         }
     }
 }

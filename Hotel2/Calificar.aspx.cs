@@ -85,14 +85,20 @@ namespace Hotel
                             }
                             else
                             {
-                                
-                                calificacion = new Calificacion();
-                                calificacion.ClienteId = clienteIdConectado;
-                                calificacion.HabitacionId = habitacionId;
-                                calificacion.Valoracion = califica.CurrentRating;
-                                db.Calificacion.Add(calificacion);
-                                db.SaveChanges();
-                                lblMensaje.Text = "HABITACIÓN CALIFICADA CORRECTAMENTE";
+                                if(califica.CurrentRating != 0)
+                                {
+                                    calificacion = new Calificacion();
+                                    calificacion.ClienteId = clienteIdConectado;
+                                    calificacion.HabitacionId = habitacionId;
+                                    calificacion.Valoracion = califica.CurrentRating;
+                                    db.Calificacion.Add(calificacion);
+                                    db.SaveChanges();
+                                    lblMensaje.Text = "HABITACIÓN CALIFICADA CORRECTAMENTE";
+                                }
+                                else
+                                {
+                                    lblMensaje.Text = "NO HAS CALIFICADO";
+                                }   
                             }
                         }
                         else

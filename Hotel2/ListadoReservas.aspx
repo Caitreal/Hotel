@@ -7,25 +7,23 @@
                 <th>Fecha en que se reservó</th>
                 <th>Fecha de Reserva</th>
                 <th>Usuario</th>
-                <th>RUT</th>
                 <th>Numero de Noches</th>
                 <th>Habitacion</th>
+                <th>          </th>
             </tr>
         </thead>
         <tbody>
-            <% foreach(var reservas in Reservas){
+            <% foreach(var reservas in reservas){
                 %>
             <tr>
                 <td><%=reservas.Fecha %></td>
                 <td><%=reservas.FechaInicio %></td>
+                <td><%=reservas.Usuario.NombreUsuario %></td>
+                <td><%=reservas.NumeroNoches %></td>
+                <td><%=reservas.Habitacion.Descripcion %></td>
+                <td><asp:HyperLink href="EliminarReservaCliente.aspx?id=<% reservas.Id %>" CssClass="btn btn-danger" runat="server">Cancelar Reserva</asp:HyperLink></td>
             </tr>
-            
         </tbody>
         <%} %>
     </table>
-    <div class="row">
-        <div class="col-md-3">
-            <asp:HyperLink href="EliminarReservaCliente.aspx?id=<%reservas.Id%>" runat="server">Cancelar Reserva</asp:HyperLink>
-        </div>
-    </div>
 </asp:Content>

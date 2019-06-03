@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/22/2019 11:16:40
--- Generated from EDMX file: C:\Users\mjnv5\source\repos\HotelTrivago\Hotel2\HotelTrivago.edmx
+-- Date Created: 06/02/2019 20:12:30
+-- Generated from EDMX file: C:\Users\danya\source\repos\Caitreal\Hotel2\HotelTrivago.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -29,17 +29,17 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Cliente_ToUsuario]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Cliente] DROP CONSTRAINT [FK_Cliente_ToUsuario];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Habitacion_ToTipoHabitacion]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Habitacion] DROP CONSTRAINT [FK_Habitacion_ToTipoHabitacion];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PagoReserva_ToReserva]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PagoReserva] DROP CONSTRAINT [FK_PagoReserva_ToReserva];
-GO
 IF OBJECT_ID(N'[dbo].[FK_Reserva_ToCliente]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Reserva] DROP CONSTRAINT [FK_Reserva_ToCliente];
 GO
+IF OBJECT_ID(N'[dbo].[FK_Habitacion_ToTipoHabitacion]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Habitacion] DROP CONSTRAINT [FK_Habitacion_ToTipoHabitacion];
+GO
 IF OBJECT_ID(N'[dbo].[FK_Reserva_ToHabitacion]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Reserva] DROP CONSTRAINT [FK_Reserva_ToHabitacion];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PagoReserva_ToReserva]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PagoReserva] DROP CONSTRAINT [FK_PagoReserva_ToReserva];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Reserva_ToUsuario]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Reserva] DROP CONSTRAINT [FK_Reserva_ToUsuario];

@@ -7,6 +7,26 @@
 
     <div class="row">
         <div class="col-md-4">
+            <label>Fecha de Inicio</label>
+        </div>
+        <div class="col-md-4">
+            <label>Fecha de Termino</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+        </div>
+        <div class="col-md-4">
+            <asp:Calendar ID="Calendar2" runat="server" OnSelectionChanged="Calendar2_SelectionChanged"></asp:Calendar>
+        </div>
+    </div>
+    
+    <br />
+
+    <div class="row">
+        <div class="col-md-4">
             <label>Numero de Habitacion: </label>
         </div>
         <div class="col-md-6">

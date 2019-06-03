@@ -34,10 +34,10 @@ namespace Hotel2
                     Id = Convert.ToInt32(Request.QueryString["id"]);
                     var db = new DB();
                     var reservaCliente = db.Reserva.Find(Id);
-                    var fechaReserva = reservaCliente.Fecha;
-                    var fechaSumada = fechaReserva.AddDays(2);
-                    var fechaHoy = DateTime.Today;
-                    if (fechaHoy <= fechaSumada)
+                    var fechaReserva = reservaCliente.FechaInicio;
+                    var fechaRestada = fechaReserva.AddDays(-2);
+                    var fechaHoy = DateTime.Now;
+                    if (fechaHoy <= fechaRestada)
                     {
                          db.Reserva.Remove(reservaCliente);
                          db.SaveChanges();
@@ -46,7 +46,7 @@ namespace Hotel2
                     else
                     {
                         txtError.Text = "Solo se puede eliminar la reserva antes de las 48 Horas reservada";
-                        Thread.Sleep(5500);
+                        Thread.Sleep(3000);
                         Response.Redirect("ListadoReservas");
                     }
                 }

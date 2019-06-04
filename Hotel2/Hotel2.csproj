@@ -216,6 +216,8 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="verGananciasMesAdministrador.aspx" />
+    <Content Include="verGananciasSinLimiteAdministrador.aspx" />
     <Content Include="VerHabitacion.aspx" />
     <Content Include="VerReserva.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -446,6 +448,20 @@
     </Compile>
     <Compile Include="Usuario.cs">
       <DependentUpon>HotelTrivago.tt</DependentUpon>
+    </Compile>
+    <Compile Include="verGananciasMesAdministrador.aspx.cs">
+      <DependentUpon>verGananciasMesAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="verGananciasMesAdministrador.aspx.designer.cs">
+      <DependentUpon>verGananciasMesAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="verGananciasSinLimiteAdministrador.aspx.cs">
+      <DependentUpon>verGananciasSinLimiteAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="verGananciasSinLimiteAdministrador.aspx.designer.cs">
+      <DependentUpon>verGananciasSinLimiteAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="VerHabitacion.aspx.cs">
       <DependentUpon>VerHabitacion.aspx</DependentUpon>

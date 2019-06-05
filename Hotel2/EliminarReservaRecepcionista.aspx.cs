@@ -9,41 +9,20 @@ namespace Hotel2
 {
     public partial class EliminarReservaRecepcionista : System.Web.UI.Page
     {
+        public List <Habitacion> Habitaciones { get; set; }
+        public List <Reserva> Reservas { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             comprobarSesion();
             var db = new DB();
-            List<Reserva> reservas = db.Reserva.ToList();
-            List<Habitacion> habitaciones = new List<Habitacion>();
+            Habitaciones = db.Habitacion.ToList();
+            Reservas = db.Reserva.ToList();
 
-            foreach (Reserva rs in reservas)
-            {
-                habitaciones.Add(rs.Habitacion);
-            }
-
-
-            DropListHabitacion.DataSource = habitaciones;
-            DropListHabitacion.DataTextField = "Id";
-            DropListHabitacion.DataValueField = "Id";
-            DropListHabitacion.DataBind();
         }
 
         protected void Eliminar_Click(object sender, EventArgs e)
         {
-            var db = new DB();
-            List<Reserva> reservas = db.Reserva.ToList();
-            Reserva eliminar = new Reserva();
-            int idHabitacion = Convert.ToInt32(DropListHabitacion.SelectedValue);
-
-            foreach (Reserva rs in reservas)
-            {
-                if (rs.HabitacionId == idHabitacion)
-                {
-                    db.Reserva.Remove(rs);
-                    db.SaveChanges();
-                    Response.Redirect("MenuRecepcionista.aspx");
-                }
-            }
+            
         }
 
         private void comprobarSesion()
@@ -60,6 +39,11 @@ namespace Hotel2
             {
                 Response.Redirect("Default.aspx");
             }
+        }
+
+        protected void EliminarReserva_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

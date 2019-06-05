@@ -4,9 +4,36 @@
     <h1>Eliminar Reservacion</h1>
     <br />
 
-    <asp:DropDownList runat="server" ID="DropListHabitacion">
+     <table class="table table-stripped table-hover">
 
-    </asp:DropDownList>
+        <thead>
+            <tr>
+                <th>Habitacion</th>
+                <th>Fecha Tomada</th>
+                <th>Fecha Inicio</th>
+                <th>Numero de Noches</th>
+                <th>Cliente</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% foreach (var reserva in Reservas)
+                {
+
+            %>
+            <tr>
+                <td><%= reserva.Habitacion.Descripcion %></td>
+                <td><%= reserva.Fecha %></td>
+                <td><%= reserva.FechaInicio %></td>
+                <td><%= reserva.NumeroNoches%></td>
+                <td><%= reserva.Usuario.NombreUsuario %></td>
+                <td>
+                    <a href="Eliminando.aspx?id=<%= reserva.Id%>" class="btn btn-danger" >Eliminar Reserva</a>
+            </tr>
+            <%
+                }
+            %>
+        </tbody>
+    </table>
     <br />
-    <asp:Button runat="server" ID="Eliminar" OnClick="Eliminar_Click" Text="Eliminar" CssClass="btn btn-info"/>
 </asp:Content>

@@ -134,6 +134,7 @@
     <Content Include="Default.aspx" />
     <Content Include="EditarHabitacion.aspx" />
     <Content Include="EditarUsuario.aspx" />
+    <Content Include="Eliminando.aspx" />
     <Content Include="EliminarHabitacion.aspx" />
     <Content Include="EliminarReservaCliente.aspx" />
     <Content Include="EliminarReservaRecepcionista.aspx" />
@@ -218,7 +219,6 @@
     <Content Include="Site.Master" />
     <Content Include="verGananciaSinLimiteAdministrador.aspx" />
     <Content Include="verGananciasMesAdministrador.aspx" />
-
     <Content Include="VerHabitacion.aspx" />
     <Content Include="VerReserva.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -283,6 +283,13 @@
     </Compile>
     <Compile Include="EditarUsuario.aspx.designer.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Eliminando.aspx.cs">
+      <DependentUpon>Eliminando.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Eliminando.aspx.designer.cs">
+      <DependentUpon>Eliminando.aspx</DependentUpon>
     </Compile>
     <Compile Include="EliminarHabitacion.aspx.cs">
       <DependentUpon>EliminarHabitacion.aspx</DependentUpon>
@@ -450,7 +457,6 @@
     <Compile Include="Usuario.cs">
       <DependentUpon>HotelTrivago.tt</DependentUpon>
     </Compile>
-
     <Compile Include="verGananciaSinLimiteAdministrador.aspx.cs">
       <DependentUpon>verGananciaSinLimiteAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -458,7 +464,6 @@
     <Compile Include="verGananciaSinLimiteAdministrador.aspx.designer.cs">
       <DependentUpon>verGananciaSinLimiteAdministrador.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="verGananciasMesAdministrador.aspx.cs">
       <DependentUpon>verGananciasMesAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -466,7 +471,6 @@
     <Compile Include="verGananciasMesAdministrador.aspx.designer.cs">
       <DependentUpon>verGananciasMesAdministrador.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="VerHabitacion.aspx.cs">
       <DependentUpon>VerHabitacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Hotel2
 {
-    public partial class EliminarReservaCliente : System.Web.UI.Page
+    public partial class Eliminando : System.Web.UI.Page
     {
         public int Id { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             var ok = false;
             var conectado = Session["conectado"] as Usuario;
-            
+
             if (conectado != null)
             {
-                if (conectado.TipoUsuario.Nombre == "CLIENTE")
+                if (conectado.TipoUsuario.Nombre == "RECEPCIONISTA")
                 {
                     ok = true;
                 }
@@ -39,14 +38,8 @@ namespace Hotel2
                     var fechaHoy = DateTime.Now;
                     if (fechaHoy <= fechaRestada)
                     {
-                         db.Reserva.Remove(reservaCliente);
-                         db.SaveChanges();
-                         Response.Redirect("ListadoReservas");
-                    }
-                    else
-                    {
-                        txtError.Text = "Solo se puede eliminar la reserva antes de las 48 Horas reservada";
-                        Thread.Sleep(3000);
+                        db.Reserva.Remove(reservaCliente);
+                        db.SaveChanges();
                         Response.Redirect("ListadoReservas");
                     }
                 }

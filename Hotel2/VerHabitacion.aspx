@@ -8,8 +8,8 @@
             </strong>
         </div>
     </div>
-    <div class="imagen row">
-        <div class=" otraCol col-md-10">
+    <div class="row">
+        <div class="col-md-10">
             <asp:Image ID="imgHabitacion" runat="server" style="width:650px; height:330px;" />
         </div>
     </div>

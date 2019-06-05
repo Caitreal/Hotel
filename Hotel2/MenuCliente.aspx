@@ -11,6 +11,9 @@
     </div>
     <div class="row">
         <div class="col-md-3">
+            <asp:Button ID="btnValorar" runat="server" Text="Valorar" CssClass="btn btn-warning" OnClick="btnCerrar_Click" />
+        </div>
+        <div class="col-md-3">
             <asp:Button ID="btnCerrar" runat="server" Text="Cerrar Sesión" CssClass="btn btn-danger" OnClick="btnCerrar_Click" />
         </div>
     </div>

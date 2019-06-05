@@ -17,31 +17,36 @@ namespace Hotel
                 if (conectado.TipoUsuario.Nombre == "CLIENTE")
                 {
                     ok = true;
+                    var db = new DB();
+                    var reservaId = Convert.ToInt32(Request.QueryString["id"]); 
+                    var reserva = db.Reserva.Find(reservaId);
+                    var clienteIdConectado = conectado.Cliente.FirstOrDefault().Id;
+                    var habitacionId = reserva.HabitacionId;
+                    if (reserva != null)
+                    {
+                        var calificacion = db.Calificacion.Where(c => c.ClienteId == clienteIdConectado && c.HabitacionId == habitacionId).FirstOrDefault();
+                        if (calificacion != null)
+                        {
+                            lblMensaje.Text = "Usted ya ha evaluado anteriormente con " + calificacion.Valoracion + " y solo puedes valorar una vez ";
+                        }
+                    }
                 }
             }
             if (!ok)
             {
                 Response.Redirect("~/Default");
             }
-            else
-            {
-                if (!IsPostBack)
-                {
-                    
-                }
-            }
-
             try
             {
                 var reservaId = Convert.ToInt32(Request.QueryString["id"]);
                 var db = new DB();
                 var reserva = db.Reserva.Find(reservaId);
-                if(reserva == null)
+                if (reserva == null)
                 {
                     Response.Redirect("~/Default");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Response.Redirect("~/Default");
             }
@@ -85,12 +90,20 @@ namespace Hotel
                             }
                             else
                             {
-                                calificacion = new Calificacion();
-                                calificacion.ClienteId = clienteIdConectado;
-                                calificacion.HabitacionId = habitacionId;;
-                                db.Calificacion.Add(calificacion);
-                                db.SaveChanges();
-                                lblMensaje.Text = "HABITACIÓN CALIFICADA CORRECTAMENTE";
+                                if(califica.CurrentRating != 0)
+                                {
+                                    calificacion = new Calificacion();
+                                    calificacion.ClienteId = clienteIdConectado;
+                                    calificacion.HabitacionId = habitacionId;
+                                    calificacion.Valoracion = califica.CurrentRating;
+                                    db.Calificacion.Add(calificacion);
+                                    db.SaveChanges();
+                                    lblMensaje.Text = "HABITACIÓN CALIFICADA CORRECTAMENTE";
+                                }
+                                else
+                                {
+                                    lblMensaje.Text = "NO HAS CALIFICADO";
+                                }   
                             }
                         }
                         else

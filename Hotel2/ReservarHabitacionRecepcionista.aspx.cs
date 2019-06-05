@@ -47,20 +47,22 @@ namespace Hotel2
         protected void btnReservar_Click(object sender, EventArgs e)
         {
             var db = new DB();
-            DateTime hoy = DateTime.Now;
             int idUsuario = Convert.ToInt32(DropListCliente.SelectedValue);
             int idHabitacion = Convert.ToInt32(DropListHabitacion.SelectedValue);
             Cliente cliente = db.Cliente.Where(c => c.UsuarioId == idUsuario).FirstOrDefault();
+            int descuentoCliente = Convert.ToInt32(cliente.TipoCliente.Descuento); 
             Reserva reserva = new Reserva();           
             reserva.Cliente = cliente;
             reserva.FechaInicio = Calendar1.SelectedDate;
             reserva.Habitacion = db.Habitacion.Find(idHabitacion);
             reserva.NumeroNoches = (Calendar2.SelectedDate.DayOfYear - Calendar1.SelectedDate.DayOfYear);
+
             reserva.Fecha = hoy;
+
             PagoReserva pago = new PagoReserva();
             pago.Reserva = reserva;
             db.Reserva.Add(reserva);
-            pago.Pago = (reserva.NumeroNoches * Convert.ToInt32(reserva.Habitacion.Precio));
+            pago.Pago = (reserva.NumeroNoches * Convert.ToInt32(reserva.Habitacion.Precio) - descuentoCliente);
             db.PagoReserva.Add(pago);
             db.SaveChanges();
             Response.Redirect("MenuRecepcionista.aspx");

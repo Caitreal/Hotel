@@ -11,6 +11,7 @@ namespace Hotel2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             cargarListas();
 
         }
@@ -32,6 +33,7 @@ namespace Hotel2
                 foreach(int y in years)
                 {
                     if(p.FechaPago.Year == y)
+
                     {
                         existe = true;
                         break;
@@ -43,10 +45,12 @@ namespace Hotel2
                 }
             }
 
+
             ListMonths.DataSource = months;            
             ListMonths.DataBind();
             ListYears.DataSource = years;            
             ListYears.DataBind();
+
         }
 
         private void comprobarSesion()
@@ -79,6 +83,7 @@ namespace Hotel2
                 ganancia += p.Pago;
             }
             textoCalculo.Text = "Ganancias para mes "+month+" del año "+year+" es de: $" + ganancia;
+
         }
     }
 }

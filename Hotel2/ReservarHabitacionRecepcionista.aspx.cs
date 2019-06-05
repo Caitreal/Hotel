@@ -56,7 +56,9 @@ namespace Hotel2
             reserva.FechaInicio = Calendar1.SelectedDate;
             reserva.Habitacion = db.Habitacion.Find(idHabitacion);
             reserva.NumeroNoches = (Calendar2.SelectedDate.DayOfYear - Calendar1.SelectedDate.DayOfYear);
-            reserva.Fecha = DateTime.Now;
+
+            reserva.Fecha = hoy;
+
             PagoReserva pago = new PagoReserva();
             pago.Reserva = reserva;
             db.Reserva.Add(reserva);
@@ -110,7 +112,7 @@ namespace Hotel2
                     {
                         DateTime inicio = r.FechaInicio;
                         DateTime fin = r.FechaInicio.AddDays(r.NumeroNoches);
-                        if ((Calendar1.SelectedDate > inicio && Calendar1.SelectedDate < fin) || (Calendar2.SelectedDate > inicio && Calendar2.SelectedDate < fin))
+                        if ((Calendar1.SelectedDate >= inicio && Calendar1.SelectedDate <= fin) || (Calendar2.SelectedDate >= inicio && Calendar2.SelectedDate <= fin))
                         {
                             disponible = false;
                             break;

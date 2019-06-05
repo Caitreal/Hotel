@@ -11,22 +11,29 @@ namespace Hotel2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          //  comprobarSesion();
-            cargarDropList();
+
+            cargarListas();
+
         }
 
-        private void cargarDropList()
+        private void cargarListas()
         {
             var db = new DB();
-            List<PagoReserva> pago = db.PagoReserva.ToList();
-            List<int> years = new List<int>();
+            List<PagoReserva> pagos = db.PagoReserva.ToList();
             List<int> months = new List<int>();
-            foreach(PagoReserva p in pago)
+            List<int> years = new List<int>();
+
+            for (int i = 1; i <= 12; i++)
+            {
+                months.Add(i);
+            }
+            foreach(PagoReserva p in pagos)
             {
                 Boolean existe = false;
-                foreach(int year in years)
+                foreach(int y in years)
                 {
-                    if(p.FechaPago.Year == year)
+                    if(p.FechaPago.Year == y)
+
                     {
                         existe = true;
                         break;
@@ -37,20 +44,12 @@ namespace Hotel2
                     years.Add(p.FechaPago.Year);
                 }
             }
-            for (int i = 1; i <= 12; i++)
-            {
-                months.Add(i);
-            }
 
-            ListYear.DataSource = years;
-          //  ListYear.DataTextField = "";
-          //  ListYear.DataValueField = "";
-            ListYear.DataBind();
 
-            ListMonth.DataSource = months;
-          //  ListMonth.DataTextField = "";
-          //  ListMonth.DataValueField = "";
-            ListMonth.DataBind();
+            ListMonths.DataSource = months;            
+            ListMonths.DataBind();
+            ListYears.DataSource = years;            
+            ListYears.DataBind();
 
         }
 
@@ -70,21 +69,21 @@ namespace Hotel2
             }
         }
 
-        protected void calcular_Click(object sender, EventArgs e)
+        protected void Calcular_Click(object sender, EventArgs e)
         {
             var db = new DB();
-            int year = Convert.ToInt32(ListYear.SelectedValue);
-            int month = Convert.ToInt32(ListMonth.SelectedValue);
-            int ingreso = 0;
-            List<PagoReserva> filtradasYear = db.PagoReserva.Where(p => p.FechaPago.Year == year).ToList();
-            foreach(PagoReserva f in filtradasYear)
+            int year = Convert.ToInt32(ListYears.SelectedValue);
+            int month = Convert.ToInt32(ListMonths.SelectedValue);
+            List<PagoReserva> pagos = db.PagoReserva.Where(
+                p => p.FechaPago.Year == year && p.FechaPago.Month == month)
+                .ToList();
+            int ganancia = 0;
+            foreach (PagoReserva p in pagos)
             {
-                if(f.FechaPago.Month == month)
-                {
-                    ingreso += f.Pago;
-                }
+                ganancia += p.Pago;
             }
-            txtIngreso.Text = "El ingreso para dicho mes es de $" + Convert.ToString(ingreso) + ListMonth.SelectedValue;
+            textoCalculo.Text = "Ganancias para mes "+month+" del año "+year+" es de: $" + ganancia;
+
         }
     }
 }

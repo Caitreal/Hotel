@@ -40,10 +40,5 @@ namespace Hotel2
                 Response.Redirect("Default.aspx");
             }
         }
-
-        protected void EliminarReserva_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

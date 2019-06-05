@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -40,7 +41,11 @@ namespace Hotel2
                     {
                         db.Reserva.Remove(reservaCliente);
                         db.SaveChanges();
-                        Response.Redirect("ListadoReservas");
+                        Response.Redirect("EliminarReservaRecepcionista");
+                    }
+                    if(fechaHoy >= fechaRestada)
+                    {
+                        lblTexto.Text = "La reserva ya fue realizada o se encuentra fuera del plazo estipulado";
                     }
                 }
             }

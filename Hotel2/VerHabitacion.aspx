@@ -8,9 +8,9 @@
             </strong>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-10">
-            <asp:Image ID="imgHabitacion" runat="server" />
+    <div class="imagen row">
+        <div class=" otraCol col-md-10">
+            <asp:Image ID="imgHabitacion" runat="server" style="width:650px; height:330px;" />
         </div>
     </div>
     <div class="row">
@@ -35,7 +35,7 @@
             <a href="ListadoHabitaciones.aspx" class="btn btn-primary">Volver</a>
         </div>
         <div class="col-md-4">
-            <a href="ReservarHabitacionCliente.aspx?id=<%Id%>" class="btn btn-success">Reservar</a>           
+            <a href="ReservarHabitacionCliente.aspx?id=<%= Id%>" class="btn btn-success">Reservar</a>           
         </div>
     </div>
 </asp:Content>

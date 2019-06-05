@@ -32,11 +32,15 @@
                     StarCssClass="Calificado" WaitingStarCssClass="Enviando"/>
        </div>
         </br>
+    </div>
+    <div class="row">
         <div class="col-md-6">
-            <asp:Button ID="btnAceptar" runat="server" Text="CALIFICAR" OnClick="btnAceptar_Click" />
+            <asp:Label CssClass="alert-danger" ID="lblMensaje" runat="server" Text=""></asp:Label>    
         </div>
     </div>
     <div class="row">
-        <asp:Label CssClass="alert-danger" ID="lblMensaje" runat="server" Text=""></asp:Label>
+        <div class="col-md-6">
+            <asp:Button ID="btnAceptar" runat="server" Text="CALIFICAR" OnClick="btnAceptar_Click" />
+        </div>
     </div>
 </asp:Content>

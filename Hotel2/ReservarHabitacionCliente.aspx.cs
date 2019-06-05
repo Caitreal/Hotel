@@ -10,43 +10,114 @@ namespace Hotel2
     public partial class Reservar_ : System.Web.UI.Page
     {
 
-        public int Id { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
- 
+            comprobarSesion();
         }
+        private void LlenarDropListHabitacion(List<Habitacion> habitacionesFiltradas)
+        {
+            DropListHabitacion.DataSource = habitacionesFiltradas;
+            DropListHabitacion.DataTextField = "Id";
+            DropListHabitacion.DataValueField = "Id";
+            DropListHabitacion.DataBind();
+        }
+       
 
-        protected void reservar_Click(object sender, EventArgs e)
+        protected void btnReservar_Click(object sender, EventArgs e)
         {
             var db = new DB();
-            Usuario conectado = Session["conectado"] as Usuario;
+            var hoy = DateTime.Now;
+            int idHabitacion = Convert.ToInt32(DropListHabitacion.SelectedValue);
+            Cliente cliente = Session["conectado"] as Cliente;
+            int descuentoCliente = Convert.ToInt32(cliente.TipoCliente.Descuento);
+            Reserva reserva = new Reserva();
+            reserva.Cliente = cliente;
+            reserva.FechaInicio = Calendar1.SelectedDate;
+            reserva.Habitacion = db.Habitacion.Find(idHabitacion);
+            reserva.NumeroNoches = (Calendar2.SelectedDate.DayOfYear - Calendar1.SelectedDate.DayOfYear);
 
+            reserva.Fecha = hoy;
 
-            Cliente cli = new Cliente();
+            PagoReserva pago = new PagoReserva();
+            pago.Reserva = reserva;
+            db.Reserva.Add(reserva);
+            pago.Pago = (((reserva.NumeroNoches * Convert.ToInt32(reserva.Habitacion.Precio)) * descuentoCliente) / 100);
+            db.PagoReserva.Add(pago);
+            db.SaveChanges();
+            Response.Redirect("MenuCliente.aspx");
+        }
+        private Boolean comprobarFechas()
+        {
+            DateTime inicio = Calendar1.SelectedDate;
+            DateTime fin = Calendar2.SelectedDate;
+            DateTime hoy = DateTime.Now;
 
-            List<Cliente> liscli = db.Cliente.ToList();
-
-            foreach (Cliente c in liscli)
+            if (inicio != null && fin != null)
             {
-                if (c.UsuarioId == conectado.Id)
+                if (inicio >= hoy && fin > inicio)
                 {
-                    cli = c;
+                    return true;
                 }
             }
+            return false;
+        }
+        private void comprobarSesion()
+        {
+            Usuario user = Session["conectado"] as Usuario;
+            if (user != null)
+            {
+                if (!user.TipoUsuario.Nombre.Equals("CLIENTE"))
+                {
+                    Response.Redirect("Default.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
+        }
+        private void consultarHabitacionesDisponibles()
+        {
+            if (comprobarFechas())
+            {
+                var db = new DB();
+                List<Habitacion> habitaciones = db.Habitacion.ToList();
+                List<Habitacion> habitacionesDisponibles = new List<Habitacion>();
+                foreach (Habitacion h in habitaciones)
+                {
+                    Boolean disponible = true;
+                    List<Reserva> reservas = h.Reserva.ToList();
+                    foreach (Reserva r in reservas)
+                    {
+                        DateTime inicio = r.FechaInicio;
+                        DateTime fin = r.FechaInicio.AddDays(r.NumeroNoches);
+                        if ((Calendar1.SelectedDate >= inicio && Calendar1.SelectedDate <= fin) || (Calendar2.SelectedDate >= inicio && Calendar2.SelectedDate <= fin))
+                        {
+                            disponible = false;
+                            break;
+                        }
+                    }
+                    if (disponible)
+                    {
+                        habitacionesDisponibles.Add(h);
+                    }
+                }
+                LlenarDropListHabitacion(habitacionesDisponibles);
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Comprueba las fechas!')", true);
+            }
 
-            Reserva rs = new Reserva();
-            rs.Cliente = cli;
-            rs.UsuarioId = conectado.Id;
-            rs.NumeroNoches = Convert.ToInt32(txtNumNoches.Text);
-            rs.CantidadPersonas = Convert.ToInt32(txtPersonas.Text);
-            rs.HabitacionId = Convert.ToInt32(Request.QueryString["id"]);
 
-            db.Reserva.Add(rs);
-            db.SaveChanges();
 
-            Response.Redirect("MenuCliente.aspx");
 
+        }
+
+        protected void Calendar2_SelectionChanged(object sender, EventArgs e)
+        {
+            consultarHabitacionesDisponibles();
         }
     }
 }

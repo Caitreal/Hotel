@@ -124,6 +124,8 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Calificar.aspx" />
+    <Content Include="cambiar.aspx" />
+    <Content Include="cambiarDescuento.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -218,7 +220,6 @@
     <Content Include="Site.Master" />
     <Content Include="verGananciaSinLimiteAdministrador.aspx" />
     <Content Include="verGananciasMesAdministrador.aspx" />
-
     <Content Include="VerHabitacion.aspx" />
     <Content Include="VerReserva.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -245,6 +246,20 @@
     </Compile>
     <Compile Include="Calificar.aspx.designer.cs">
       <DependentUpon>Calificar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cambiar.aspx.cs">
+      <DependentUpon>cambiar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cambiar.aspx.designer.cs">
+      <DependentUpon>cambiar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cambiarDescuento.aspx.cs">
+      <DependentUpon>cambiarDescuento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cambiarDescuento.aspx.designer.cs">
+      <DependentUpon>cambiarDescuento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente.cs">
       <DependentUpon>HotelTrivago.tt</DependentUpon>
@@ -450,7 +465,6 @@
     <Compile Include="Usuario.cs">
       <DependentUpon>HotelTrivago.tt</DependentUpon>
     </Compile>
-
     <Compile Include="verGananciaSinLimiteAdministrador.aspx.cs">
       <DependentUpon>verGananciaSinLimiteAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -458,7 +472,6 @@
     <Compile Include="verGananciaSinLimiteAdministrador.aspx.designer.cs">
       <DependentUpon>verGananciaSinLimiteAdministrador.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="verGananciasMesAdministrador.aspx.cs">
       <DependentUpon>verGananciasMesAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -466,7 +479,6 @@
     <Compile Include="verGananciasMesAdministrador.aspx.designer.cs">
       <DependentUpon>verGananciasMesAdministrador.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="VerHabitacion.aspx.cs">
       <DependentUpon>VerHabitacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

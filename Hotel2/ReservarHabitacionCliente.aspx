@@ -1,27 +1,48 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReservarHabitacionCliente.aspx.cs" Inherits="Hotel2.Reservar_" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    </br>
-    <strong>
-        <asp:Label ID="Label1" runat="server" Text="Reservar Habitación"></asp:Label>
-    </strong>
+
+    <br />
+    <h1>Reservar Habitacion</h1>
+    <br />
 
     <div class="row">
-        <div class="col-md-3">
-            <asp:Label ID="Label4" runat="server" Text="Numero de noches:"></asp:Label>
+        <div class="col-md-4">
+            <label>Fecha de Inicio</label>
         </div>
-        <div class="col-md-3">
-            <asp:TextBox ID="txtNumNoches" runat="server"></asp:TextBox>
+        <div class="col-md-4">
+            <label>Fecha de Termino</label>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-md-3">
-            <asp:Label ID="Label5" runat="server" Text="Cantidad de personas"></asp:Label>
+        <div class="col-md-4">
+            <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
         </div>
-        <div class="col-md-3">
-            <asp:TextBox ID="txtPersonas" runat="server"></asp:TextBox>
+        <div class="col-md-4">
+            <asp:Calendar ID="Calendar2" runat="server" OnSelectionChanged="Calendar2_SelectionChanged"></asp:Calendar>
         </div>
     </div>
+    
     <br />
-<asp:Button ID="reservar" Text="RESERVAR" runat="server" OnClick="reservar_Click"/>
+
+    <div class="row">
+        <div class="col-md-4">
+            <label>Numero de Habitacion: </label>
+        </div>
+        <div class="col-md-6">
+            <asp:DropDownList ID="DropListHabitacion" runat="server">
+
+            </asp:DropDownList>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <asp:Button ID="btnReservar" CssClass="btn btn-info" runat="server" Text="RESERVAR" OnClick="btnReservar_Click"></asp:Button>
+    </div>
+    
+
+
 
 </asp:Content>

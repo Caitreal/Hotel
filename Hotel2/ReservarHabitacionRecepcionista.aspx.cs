@@ -47,6 +47,7 @@ namespace Hotel2
         protected void btnReservar_Click(object sender, EventArgs e)
         {
             var db = new DB();
+            var hoy = DateTime.Now;
             int idUsuario = Convert.ToInt32(DropListCliente.SelectedValue);
             int idHabitacion = Convert.ToInt32(DropListHabitacion.SelectedValue);
             Cliente cliente = db.Cliente.Where(c => c.UsuarioId == idUsuario).FirstOrDefault();

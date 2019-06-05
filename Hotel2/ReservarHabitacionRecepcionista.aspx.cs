@@ -63,7 +63,7 @@ namespace Hotel2
             PagoReserva pago = new PagoReserva();
             pago.Reserva = reserva;
             db.Reserva.Add(reserva);
-            pago.Pago = (reserva.NumeroNoches * Convert.ToInt32(reserva.Habitacion.Precio) - descuentoCliente);
+            pago.Pago = (((reserva.NumeroNoches * Convert.ToInt32(reserva.Habitacion.Precio))* descuentoCliente)/100);
             db.PagoReserva.Add(pago);
             db.SaveChanges();
             Response.Redirect("MenuRecepcionista.aspx");

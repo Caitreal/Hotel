@@ -7,33 +7,31 @@ using System.Web.UI.WebControls;
 
 namespace Hotel2
 {
-    public partial class MenuAdministrador : System.Web.UI.Page
+    public partial class cambiar : System.Web.UI.Page
     {
+        private int Id;
         protected void Page_Load(object sender, EventArgs e)
         {
             comprobarSesion();
+            var db = new DB();
+            this.Id = Convert.ToInt32(Request.QueryString["id"]);
+            TipoCliente tp = db.TipoCliente.Find(this.Id);
+           if(!IsPostBack)
+            {
+            txtNombre.Text = tp.Nombre.ToString();
+            txtDescuento.Text = tp.Descuento.ToString();
+            }
         }
 
-        protected void btnGananciaMes_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("verGananciasMesAdministrador.aspx");
-        }
-
-        protected void btnGananciaRango_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("verGananciaSinLimiteAdministrador.aspx");
-        }
-
-        protected void btnLista_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ListadoHabitaciones.aspx");
-        }
-
-        protected void btnCambiar_Click(object sender, EventArgs e)
-        {
+        protected void Guardar_Click(object sender, EventArgs e)
+        {            
+            var db = new DB();
+            TipoCliente tp = db.TipoCliente.Find(this.Id);
+            tp.Nombre = txtNombre.Text;
+            tp.Descuento = Convert.ToInt32(txtDescuento.Text);
+            db.SaveChanges();
             Response.Redirect("cambiarDescuento.aspx");
         }
-
         private void comprobarSesion()
         {
             Usuario user = Session["conectado"] as Usuario;
@@ -49,5 +47,6 @@ namespace Hotel2
                 Response.Redirect("Default.aspx");
             }
         }
+
     }
 }

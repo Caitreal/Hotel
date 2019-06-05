@@ -124,6 +124,8 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Calificar.aspx" />
+    <Content Include="cambiar.aspx" />
+    <Content Include="cambiarDescuento.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -245,6 +247,20 @@
     </Compile>
     <Compile Include="Calificar.aspx.designer.cs">
       <DependentUpon>Calificar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cambiar.aspx.cs">
+      <DependentUpon>cambiar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cambiar.aspx.designer.cs">
+      <DependentUpon>cambiar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cambiarDescuento.aspx.cs">
+      <DependentUpon>cambiarDescuento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cambiarDescuento.aspx.designer.cs">
+      <DependentUpon>cambiarDescuento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente.cs">
       <DependentUpon>HotelTrivago.tt</DependentUpon>

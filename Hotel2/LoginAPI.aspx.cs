@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Hotel
+namespace Hotel2
 {
     public partial class LoginAPI : System.Web.UI.Page
     {

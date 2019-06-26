@@ -49,5 +49,15 @@ namespace Hotel2
                 Response.Redirect("Default.aspx");
             }
         }
+
+        protected void btnGananciaMesAjax_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GananciasMesAjax.aspx");
+        }
+
+        protected void btnGananciaRangoAjax_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GananciasSinLimitesAjax.aspx");
+        }
     }
 }

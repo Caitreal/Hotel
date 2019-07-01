@@ -35,7 +35,7 @@ namespace Hotel2
 
         protected void btnListado_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListadoHabitacionesCliente");
+            Response.Redirect("AJAX/ListadoHabitacionesCliente");
         }
 
         protected void btnCerrar_Click(object sender, EventArgs e)

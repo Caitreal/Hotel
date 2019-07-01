@@ -33,7 +33,7 @@
             //ahora haremos la llamada ajax
             $.ajax({
                 method: "POST",
-                url: "http://localhost:52853/AjaxAPI?f=listado_reserva_recepcionista",
+                url: "AjaxAPI?f=listado_reserva_recepcionista",
                 data: {}
             }).done(function (respuesta) {
                 Swal.close();
@@ -91,7 +91,7 @@
                     var reserva_id = boton.attr('reserva_id');
                     $.ajax({
                         method: "POST",
-                        url: "http://localhost:52853/AjaxAPI?f=eliminar_reserva_recepcionista",
+                        url: "AjaxAPI?f=eliminar_reserva_recepcionista",
                         data: { 'reserva_id': reserva_id, }
                     }).done(function (respuesta) {
                         var jsonObj = JSON.parse(respuesta);

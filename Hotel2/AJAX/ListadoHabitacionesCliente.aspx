@@ -30,7 +30,7 @@
             //ahora haremos la llamada ajax segun el tipo de habitacion
             $.ajax({
                 method: "POST",
-                url: "AJAX/AjaxAPI?f=listado_habitaciones_cliente",
+                url: "AjaxAPI?f=listado_habitaciones_cliente",
                 data: {}
             }).done(function (respuesta) {
                 Swal.close();

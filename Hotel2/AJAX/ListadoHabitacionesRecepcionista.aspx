@@ -32,7 +32,7 @@
             //ahora haremos la llamada ajax
             $.ajax({
                 method: "POST",
-                url: "http://localhost:52853/AjaxAPI?f=listado_habitaciones_recepcionista",
+                url: "AJAX/AjaxAPI?f=listado_habitaciones_recepcionista",
                 data: {}
             }).done(function (respuesta) {
                 Swal.close();

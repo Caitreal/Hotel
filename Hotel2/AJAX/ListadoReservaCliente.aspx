@@ -8,8 +8,9 @@
                 <th>Fecha Inicio</th>
                 <th>Numero de Noches</th>
                 <th>Habitacion</th>
-                <th>Tipo de Habitacion</th>
                 <th>Cantidad Personas</th>
+                <th>id</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody id="reservas">
@@ -20,8 +21,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script>
         $(document).ready(function (e) {
-
-
             Swal.fire({
                 type: 'success',
                 title: 'Por favor espere',
@@ -31,53 +30,50 @@
             //ahora haremos la llamada ajax
             $.ajax({
                 method: "POST",
-                url: "http://localhost:52853/AjaxAPI?f=listado_reserva_cliente",
+                url: "AjaxAPI?f=listado_reserva_cliente",
                 data: {}
             }).done(function (respuesta) {
                 Swal.close();
                 var jsonObj = JSON.parse(respuesta);
                 var reserva = jsonObj.reservas;
-                var tipo = jsonObj.tipo;
                 var habitaciones = jsonObj.habitacion;
                 console.log(habitaciones[0].Descripcion);
+                
 
                 $.each(reserva, function (i, reservas) {
-                    console.log(reservas.TipoHabitacionId);
+                    
                     console.log(reservas.HabitacionId);
 
                     var descripcionHabi = "";
-                    var tipoNombre = "";
 
                     for (var i = 0; i < habitaciones.length; i++) {
                         if (habitaciones[i].Id == reservas.HabitacionId) {
                             descripcionHabi = habitaciones[i].Descripcion;
                         }
                     }
-                    for (var i = 0; i < tipo.length; i++) {
-                        if (tipo[i].Id == reservas.TipoHabitacionId) {
-                            tipoNombre = tipo[i].Nombre;
-                        }
-                    }
+                    
                     var fila =
                         "<tr>" +
                         "   <td>" + reservas.Fecha + "</td>" +
                         "   <td>" + reservas.FechaInicio + "</td>" +
                         "   <td>" + reservas.NumeroNoches + "</td>" +
                         "   <td>" + descripcionHabi + "</td>" +
-                        "   <td>" + tipoNombre + "</td>" +
                         "   <td>" + reservas.CantidadPersonas + "</td>" +
+                        "   <td>" + reservas.Id + "</td>" +
                         "   <td><div class='btn btn-danger eliminar' reserva_id='" + reservas.Id + "'>Eliminar</div></td>" +
-                        "   <td><a href='calificacion.aspx?reserva_id='" + reservas.Id + "'>Calificar</a></td>"
-                        "</tr>";
-
-                    $("#habitaciones").append(fila);
+                        "   <td><a class='btn btn-warning' href='calificacion.aspx?reserva_id=" + reservas.Id + "'>Calificar</a></td>"
+                    "</tr>";
+                    function id() {
+                        alert(reservas.Id);
+                    }
+                    $("#reservas").append(fila);
                 });
-                $.('.eliminar').click(function (e) {
+                $('.eliminar').click(function (e) {
                     var boton = $(this);
                     var reserva_id = boton.attr('reserva_id');
                     $.ajax({
                         method: "POST",
-                        url: "http://localhost:52853/AjaxAPI?f=eliminar_reserva_cliente",
+                        url: "AjaxAPI?f=eliminar_reserva_cliente",
                         data: { 'reserva_id': reserva_id, }
                     }).done(function (respuesta) {
                         var jsonObj = JSON.parse(respuesta);

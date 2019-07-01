@@ -11,7 +11,7 @@ namespace Hotel2.AJAX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+               
         }
     }
 }

@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Hotel.AJAX {
+namespace Hotel2 {
     
     
     public partial class AjaxAPI {

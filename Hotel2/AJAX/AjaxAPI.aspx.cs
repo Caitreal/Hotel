@@ -55,15 +55,16 @@ namespace Hotel2
         private void listadoHabitacionesAdministrador()
         {
             var db = new DB();
+            db.Configuration.LazyLoadingEnabled = false;
             var habitaciones = db.Habitacion.ToList();
             var tipoHabitacion = db.TipoHabitacion.ToList();
             var mensaje = "ERROR";
-            db.Configuration.LazyLoadingEnabled = false;
             Dictionary<string, object> envio = new Dictionary<string, object>();
             if (habitaciones.Count > 0)
             {
                 envio["habitaciones"] = habitaciones;
-                mensaje = JsonConvert.SerializeObject(envio);
+                envio["tipo"] = tipoHabitacion;
+                mensaje = JsonConvert.SerializeObject(envio, Formatting.None, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
             }
             else
             {
@@ -251,20 +252,18 @@ namespace Hotel2
         private void listarReservasCliente()
         {
             var db = new DB();
-            db.Configuration.LazyLoadingEnabled = false;
-            var conectado = Session["conectado"] as Cliente;
-            var clienteConectadoId = conectado.Id;
-            var reservasCliente = db.Reserva.Where(r => r.UsuarioId == clienteConectadoId).ToList();
-            var tipoHabitacion = db.TipoHabitacion.ToList();
-            var habitacion = db.Habitacion.ToList();
             var mensaje = "";
-
+            db.Configuration.LazyLoadingEnabled = false;
+            var conectado = Session["conectado"] as Usuario;
+            var cliente = conectado.Cliente.FirstOrDefault();
+            var clienteId = cliente.Id;
+            var reserva = db.Reserva.Where(r => r.ClienteId == clienteId).ToList();
+            var habitacion = db.Habitacion.ToList();
             Dictionary<string, object> envio = new Dictionary<string, object>();
 
-            if (reservasCliente.Count > 0)
+            if (reserva.Count > 0)
             {
-                envio["reservas"] = reservasCliente;
-                envio["tipo"] = tipoHabitacion;
+                envio["reservas"] = reserva;
                 envio["habitacion"] = habitacion;
                 mensaje = JsonConvert.SerializeObject(envio, Formatting.None, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
             }
@@ -279,15 +278,24 @@ namespace Hotel2
         private void evaluarHabitacion()
         {
             var db = new DB();
-            var cliente = Session["conectado"] as Cliente;
+            var reservaId = Convert.ToInt32(Request.QueryString["reserva_id"]);
+            var reserva = db.Reserva.Find(reservaId);
+            var usuario = Session["conectado"] as Usuario;
+            var cliente = db.Cliente.Where( c => c.UsuarioId == usuario.Id).FirstOrDefault();
+            
+           // var cliente = Session["conectado"] as Cliente;
+
+            
+
             var mensaje = "";
 
             db.Configuration.LazyLoadingEnabled = false;
-            var valorar = 0;
 
-            var reservaId = Convert.ToInt32(Request.QueryString["reserva_id"]);
-            var reserva = db.Reserva.Find(reservaId);
-            var habitacionId = reserva.HabitacionId;
+
+        
+            var valor = Convert.ToInt32(Request.QueryString["valor"]);
+
+            Habitacion habitacion = db.Habitacion.Find(reserva.HabitacionId);
             var noches = Convert.ToDouble(reserva.NumeroNoches);
             var fechaFin = reserva.FechaInicio.AddDays(noches);
             var fechaCalificar = fechaFin.AddDays(3);
@@ -297,13 +305,34 @@ namespace Hotel2
 
             if (fechaHoy >= fechaCalificar)
             {
-                var calificacion = db.Calificacion.Where(c => c.ClienteId == cliente.Id && c.HabitacionId == habitacionId);
+                var calificacion = db.Calificacion.Where(c => c.ClienteId == cliente.Id );
 
                 if (calificacion != null)
                 {
-                    mensaje = JsonConvert.SerializeObject(envio, Formatting.None, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+                    envio["mensaje"] = "Ya has calificado anteriormente";
+                    mensaje = JsonConvert.SerializeObject(envio);
+                    Response.Write(mensaje);
+                }
+                else{
+                    var cal = new Calificacion();
+                    cal.ClienteId = cliente.Id;
+                    cal.Valoracion = valor;
+                    cal.HabitacionId = habitacion.Id;
+                    db.Calificacion.Add(cal);
+                    db.SaveChanges();
+                    envio["mensaje"] = "Gracias por Calificar";
+                    mensaje = JsonConvert.SerializeObject(envio);
+                    Response.Write(mensaje);
                 }
 
+                
+
+            }
+            else
+            {
+                envio["mensaje"] = "Aun no puedes Calificar";
+                mensaje = JsonConvert.SerializeObject(envio);
+                Response.Write(mensaje);
             }
 
         }

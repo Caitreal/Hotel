@@ -1,1 +1,1 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AjaxAPI.aspx.cs" Inherits="Hotel.AJAX.AjaxAPI" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AjaxAPI.aspx.cs" Inherits="Hotel2.AjaxAPI" %>

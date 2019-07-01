@@ -7,9 +7,18 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Hotel {
+namespace Hotel2.AJAX {
     
     
-    public partial class LoginAPI {
+    public partial class Calificacion {
+        
+        /// <summary>
+        /// Control calificacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.Rating calificacion;
     }
 }

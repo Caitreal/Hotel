@@ -62,9 +62,19 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -123,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+
     <Content Include="AJAX\AjaxAPI.aspx" />
     <Content Include="AJAX\Calificacion.aspx" />
     <Content Include="AJAX\ListadoReservaCliente.aspx" />
@@ -130,6 +141,9 @@
     <Content Include="AJAX\ListadoHabitacionesAdministrador.aspx" />
     <Content Include="AJAX\ListadoHabitacionesCliente.aspx" />
     <Content Include="AJAX\ListadoHabitacionesRecepcionista.aspx" />
+    <Content Include="AjaxAPI.aspx" />
+    <Content Include="AjaxDannyAPI.aspx" />
+
     <Content Include="Calificar.aspx" />
     <Content Include="cambiar.aspx" />
     <Content Include="cambiarDescuento.aspx" />
@@ -152,6 +166,8 @@
     <Content Include="Estrellas\estrellaWait.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GananciasMesAjax.aspx" />
+    <Content Include="GananciasSinLimitesAjax.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -244,6 +260,7 @@
     <Compile Include="AJAX\AjaxAPI.aspx.designer.cs">
       <DependentUpon>AjaxAPI.aspx</DependentUpon>
     </Compile>
+
     <Compile Include="AJAX\Calificacion.aspx.cs">
       <DependentUpon>Calificacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -285,6 +302,13 @@
     </Compile>
     <Compile Include="AJAX\ListadoHabitacionesRecepcionista.aspx.designer.cs">
       <DependentUpon>ListadoHabitacionesRecepcionista.aspx</DependentUpon>
+
+    <Compile Include="AjaxDannyAPI.aspx.cs">
+      <DependentUpon>AjaxDannyAPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxDannyAPI.aspx.designer.cs">
+      <DependentUpon>AjaxDannyAPI.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -384,6 +408,20 @@
     </Compile>
     <Compile Include="EliminarReservaRecepcionista.aspx.designer.cs">
       <DependentUpon>EliminarReservaRecepcionista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GananciasMesAjax.aspx.cs">
+      <DependentUpon>GananciasMesAjax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GananciasMesAjax.aspx.designer.cs">
+      <DependentUpon>GananciasMesAjax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GananciasSinLimitesAjax.aspx.cs">
+      <DependentUpon>GananciasSinLimitesAjax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GananciasSinLimitesAjax.aspx.designer.cs">
+      <DependentUpon>GananciasSinLimitesAjax.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

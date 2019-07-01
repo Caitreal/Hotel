@@ -18,5 +18,13 @@
             <asp:Button ID="btnGananciaRango" runat="server" CssClass="btn btn-info" Text="Ver Ganancia Rango" OnClick="btnGananciaRango_Click" />
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-3">
+            <asp:Button ID="btnGananciaMesAjax" runat="server" CssClass="btn btn-info" Text="Ver Ganancias Mes Ajax" OnClick="btnGananciaMesAjax_Click"/>
+        </div>
+        <div class="col-md-3">
+            <asp:Button ID="btnGananciaRangoAjax" runat="server" CssClass="btn btn-info" Text="Ver Ganancia Rango Ajax" OnClick="btnGananciaRangoAjax_Click"/>
+        </div>
+    </div>
 
 </asp:Content>

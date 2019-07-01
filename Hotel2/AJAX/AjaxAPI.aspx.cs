@@ -15,7 +15,7 @@ namespace Hotel2
             var funcion = Request.QueryString["f"];
             if(funcion == "listado_habitaciones")
             {
-                listadoHabitacionesAdministrador();
+                listadoHabitacionesAdministrador(); 
             }
             if (funcion == "listado_habitaciones_cliente")
             {

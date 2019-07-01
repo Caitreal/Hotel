@@ -54,6 +54,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -101,9 +104,6 @@
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -133,8 +133,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+
+    <Content Include="AJAX\AjaxAPI.aspx" />
+    <Content Include="AJAX\Calificacion.aspx" />
+    <Content Include="AJAX\ListadoReservaCliente.aspx" />
+    <Content Include="AJAX\ListadoReservaRecepcionista.aspx" />
+    <Content Include="AJAX\ListadoHabitacionesAdministrador.aspx" />
+    <Content Include="AJAX\ListadoHabitacionesCliente.aspx" />
+    <Content Include="AJAX\ListadoHabitacionesRecepcionista.aspx" />
     <Content Include="AjaxAPI.aspx" />
     <Content Include="AjaxDannyAPI.aspx" />
+
     <Content Include="Calificar.aspx" />
     <Content Include="cambiar.aspx" />
     <Content Include="cambiarDescuento.aspx" />
@@ -188,7 +197,7 @@
     <Content Include="ListadoHabitacionesCliente.aspx" />
     <Content Include="ListadoHabitacionesRecepcionista.aspx" />
     <Content Include="ListadoReservas.aspx" />
-    <Content Include="LoginAPI.aspx" />
+    <Content Include="AJAX\LoginAPI.aspx" />
     <Content Include="MenuAdministrador.aspx" />
     <Content Include="MenuCliente.aspx" />
     <Content Include="MenuRecepcionista.aspx" />
@@ -244,13 +253,56 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AjaxAPI.aspx.cs">
+    <Compile Include="AJAX\AjaxAPI.aspx.cs">
       <DependentUpon>AjaxAPI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AjaxAPI.aspx.designer.cs">
+    <Compile Include="AJAX\AjaxAPI.aspx.designer.cs">
       <DependentUpon>AjaxAPI.aspx</DependentUpon>
     </Compile>
+
+    <Compile Include="AJAX\Calificacion.aspx.cs">
+      <DependentUpon>Calificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AJAX\Calificacion.aspx.designer.cs">
+      <DependentUpon>Calificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AJAX\ListadoReservaCliente.aspx.cs">
+      <DependentUpon>ListadoReservaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AJAX\ListadoReservaCliente.aspx.designer.cs">
+      <DependentUpon>ListadoReservaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AJAX\ListadoReservaRecepcionista.aspx.cs">
+      <DependentUpon>ListadoReservaRecepcionista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AJAX\ListadoReservaRecepcionista.aspx.designer.cs">
+      <DependentUpon>ListadoReservaRecepcionista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AJAX\ListadoHabitacionesAdministrador.aspx.cs">
+      <DependentUpon>ListadoHabitacionesAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AJAX\ListadoHabitacionesAdministrador.aspx.designer.cs">
+      <DependentUpon>ListadoHabitacionesAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AJAX\ListadoHabitacionesCliente.aspx.cs">
+      <DependentUpon>ListadoHabitacionesCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AJAX\ListadoHabitacionesCliente.aspx.designer.cs">
+      <DependentUpon>ListadoHabitacionesCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AJAX\ListadoHabitacionesRecepcionista.aspx.cs">
+      <DependentUpon>ListadoHabitacionesRecepcionista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AJAX\ListadoHabitacionesRecepcionista.aspx.designer.cs">
+      <DependentUpon>ListadoHabitacionesRecepcionista.aspx</DependentUpon>
+
     <Compile Include="AjaxDannyAPI.aspx.cs">
       <DependentUpon>AjaxDannyAPI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -427,11 +479,11 @@
     <Compile Include="ListadoReservas.aspx.designer.cs">
       <DependentUpon>ListadoReservas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LoginAPI.aspx.cs">
+    <Compile Include="AJAX\LoginAPI.aspx.cs">
       <DependentUpon>LoginAPI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginAPI.aspx.designer.cs">
+    <Compile Include="AJAX\LoginAPI.aspx.designer.cs">
       <DependentUpon>LoginAPI.aspx</DependentUpon>
     </Compile>
     <Compile Include="MenuAdministrador.aspx.cs">

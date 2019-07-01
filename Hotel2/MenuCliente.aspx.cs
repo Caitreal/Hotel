@@ -35,11 +35,7 @@ namespace Hotel2
 
         protected void btnListado_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListadoHabitacionesCliente");
-        }
-        protected void btnValorar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Calificar");
+            Response.Redirect("AJAX/ListadoHabitacionesCliente");
         }
 
         protected void btnCerrar_Click(object sender, EventArgs e)
@@ -49,7 +45,7 @@ namespace Hotel2
 
         protected void btnReservas_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListadoReservas");
+            Response.Redirect("AJAX/ListadoReservaCliente.aspx");
         }
 
     }

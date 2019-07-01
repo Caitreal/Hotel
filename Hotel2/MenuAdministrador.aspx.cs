@@ -26,7 +26,7 @@ namespace Hotel2
 
         protected void btnLista_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListadoHabitaciones.aspx");
+            Response.Redirect("AJAX/ListadoHabitacionesAdministrador.aspx");
         }
 
         protected void btnCambiar_Click(object sender, EventArgs e)

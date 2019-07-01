@@ -7,9 +7,9 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Hotel {
+namespace Hotel2.AJAX {
     
     
-    public partial class LoginAPI {
+    public partial class ListadoHabitacionesCliente1 {
     }
 }
